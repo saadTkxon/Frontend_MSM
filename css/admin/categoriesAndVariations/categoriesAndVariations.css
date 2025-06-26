@@ -1,0 +1,181 @@
+.categoriesArea>h1{
+    font-family: var(--font1);
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.categoriesHere, .oneVaritaionElementsHere{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.oneElementBlock{
+    width: fit-content;
+    height: 70px;
+    padding: 0 27px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--borderRadius1);
+    border: 2px dashed var(--borderClr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.oneElementBlock>p{
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.deleteElementButton{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    transition: 0.25s ease-out;
+}
+
+.deleteElementButton>svg{
+    width: 23px;
+    height: 23px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.oneElementBlock:hover .deleteElementButton{
+    display: flex;
+}
+
+.addElementBlock{
+    width: fit-content;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--borderRadius1);
+    border: 2px dashed var(--borderClr);
+}
+
+.addElementBlock>button{
+    width: 70px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.addElementBlock>button>svg{
+    width: 27px;
+    height: 27px;
+    stroke-width: 1.5;
+    display: block;
+    color: gray;
+}
+
+.separatorLine{
+    width: 100%;
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid var(--borderBlk);
+    margin: 39px 0;
+}
+
+.titlePlusAddButton{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 24px;
+}
+
+.titlePlusAddButton>h1{
+    font-family: var(--font1);
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+.titlePlusAddButton>button{
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: var(--primClr1);
+    cursor: pointer;
+}
+
+.titlePlusAddButton>button>svg{
+    width: 27px;
+    height: 27px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.variationTileAndButton{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.variationTileAndButton>li{
+    list-style: inside;
+    font-family: var(--font1);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.variationTileAndButton>button{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    transition: 0.25s ease-out;
+    display: none;
+}
+
+.variationTileAndButton>button>svg{
+    width: 19px;
+    height: 19px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.variationTileAndButton:hover>button{
+    display: flex;
+}
+
+.variationsHere{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

@@ -1,0 +1,27 @@
+body {
+    background: url(/msm_kosmetika_fin/user_assets/misc/background.webp);
+    background-position: center center;
+    overflow-x: hidden;
+}
+
+i {
+    position: absolute;
+    z-index: 10000;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #00ff00;
+    pointer-events: none;
+    animation: animate 2s linear forwards;
+  }
+  
+  @keyframes animate {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--x), var(--y));
+    }
+  }

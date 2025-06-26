@@ -1,0 +1,238 @@
+.changeAddressArea {
+    width: 100%;
+    max-width: 440px;
+    height: 100svh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 500;
+    padding: 8px;
+    transition: 0.3s ease-out;
+    opacity: 0;
+    transform: translateX(110%);
+}
+
+.changeAddressContent {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    padding: 16px 16px 100px 16px;
+    overflow-y: auto;
+}
+
+.sideTitlePlusCloseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.sideTitlePlusCloseButton>h1 {
+    font-family: var(--font1);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.sideTitlePlusCloseButton>button {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+}
+
+.sideTitlePlusCloseButton>button>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.changeAddressForm {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.oneSavedAddress {
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.035);
+    padding: 11px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.checkoutAddressSelection {
+    width: fit-content;
+    height: fit-content;
+}
+
+.checkoutAddressSelection>input[type='radio'] {
+    display: none;
+}
+
+.checkoutAddressSelection>label {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.checkoutAddressSelection>label>.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+}
+
+.checkoutAddressSelection>label>.circle::before {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: var(--primClr2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.checkoutAddressSelection>input[type='radio']:checked+label>.circle {
+    border-color: var(--borderClr);
+}
+
+.checkoutAddressSelection>input[type='radio']:checked+label>.circle::before {
+    display: block;
+}
+
+.oneSavedAddressHere {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.oneSavedAddressHere>p {
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+.oneSavedAddressAddressArea {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.oneSavedAddressAddressArea>h2 {
+    font-family: var(--font1);
+    background-color: var(--primClr2);
+    color: white;
+    border-radius: var(--borderRadiusInside1);
+    padding: 2px 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.oneSavedAddressAddressArea>p {
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.changeAddressFormActButtons {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 11px;
+}
+
+.changeAddressFormActButtons>button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: var(--font1);
+    cursor: pointer;
+}
+
+.changeAddressSaveBtn {
+    background-color: var(--primClr1);
+    color: white;
+}
+
+@media only screen and (max-width: 576px) {
+    .changeAddressArea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sideTitlePlusCloseButton>h1 {
+        font-size: 16px;
+    }
+
+    .sideTitlePlusCloseButton>button {
+        font-size: 13px;
+    }
+
+    .sideTitlePlusCloseButton>button>svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .oneSavedAddress {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .oneSavedAddressHere>p {
+        font-size: 12px;
+    }
+
+    .oneSavedAddressAddressArea>h2 {
+        font-size: 11px;
+    }
+
+    .oneSavedAddressAddressArea>p {
+        font-size: 12px;
+    }
+
+    .changeAddressFormActButtons>button {
+        height: 35px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON LINKS -->
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="M$M Kosmetika" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- CSS FILES LINKS -->
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/fonts.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/root.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/loading.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/alert.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/checkout/checkout.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/checkout/checkoutItem.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/checkout/changeAddress.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/checkout/addAddress.css">
+    <script src="/msm_kosmetika_fin/js/apiscalling/auth.js"></script>
+    <!-- WEBSITE TITLE -->
+    <title>M$M - Checkout</title>
+  <style>
+    .payment-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.payment-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #555;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-payment {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-payment:hover {
+  background-color: #45a049;
+}
+
+
+
+
+/* SSAAD Alert Styles */
+.ssaad-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+    animation: slideIn 0.3s ease-out;
+}
+
+.ssaad-alert-badge {
+    position: relative;
+    padding: 15px 20px;
+    background: #4CAF50;
+    color: white;
+}
+
+.ssaad-alert-badge.error {
+    background: #F44336;
+}
+
+.ssaad-alert-badge.warning {
+    background: #FF9800;
+}
+
+.ssaad-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.ssaad-close-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ssaad-alert-message {
+    margin: 0;
+    padding-right: 30px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+  </style>
+</head>
+
+<body onload="hidePagePreloading()">
+
+    <div class="pagePreloading">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="loading" style="display: none;">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="checkoutScreen">
+        <div class="checkoutArea">
+            <form action="" class="checkoutForm">
+
+                <button class="goBack"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="m8.165 11.63l6.63-6.43C15.21 4.799 16 5.042 16 5.57v12.86c0 .528-.79.771-1.205.37l-6.63-6.43a.5.5 0 0 1 0-.74" />
+                    </svg>&nbsp;Go back</button>
+                <h1 class="pageTitle">checkout</h1>
+
+                <div class="checkoutDetsHere">
+
+
+                    <!-- shipping and billing area against that page  -->
+                    <div class="checkoutAddressArea oneCheckoutDet">
+                        <div class="oneCheckoutDetTitlePlusButton">
+                            <h1>Shipping & billing address</h1>
+                            <button type="button" onclick="openChangeAddress()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M14.1 2.391a3.896 3.896 0 0 1 5.509 5.51l-7.594 7.594c-.428.428-.69.69-.98.917a6 6 0 0 1-1.108.684c-.334.159-.685.276-1.259.467l-2.672.891l-.642.214a1.598 1.598 0 0 1-2.022-2.022l1.105-3.314c.191-.574.308-.925.467-1.259a6 6 0 0 1 .685-1.107c.227-.291.488-.553.916-.98zM5.96 16.885l-.844-.846l.728-2.185c.212-.636.3-.895.414-1.135q.212-.443.513-.83c.164-.21.356-.404.83-.879l5.891-5.89a6.05 6.05 0 0 0 1.349 2.04a6.05 6.05 0 0 0 2.04 1.348l-5.891 5.89c-.475.475-.668.667-.878.83q-.388.302-.83.514c-.24.114-.5.202-1.136.414zm12.116-9.573a4 4 0 0 1-.455-.129a4.5 4.5 0 0 1-1.72-1.084a4.54 4.54 0 0 1-1.084-1.72a4 4 0 0 1-.13-.455l.473-.472a2.396 2.396 0 0 1 3.388 3.388zM3.25 22a.75.75 0 0 1 .75-.75h16v1.5H4a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
+                                </svg>&nbsp;edit</button>
+                        </div>
+                        <div class="checkoutAddressHere">
+                            <p><span id="shippingName">salahudin bhatti</span>&nbsp;&nbsp;-&nbsp;&nbsp;<span id="shippingPhoneNumber">03123456789</span></p>
+                            <div class="shippingAddressArea">
+                                <h2>home</h2>&nbsp;&nbsp;<p><span id="shippingAddress">House #ABC, Street #X, XYZ road</span>,&nbsp;<span id="shippingCity">daska</span>,&nbsp;<span id="shippingPostalCode">51010</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="checkoutItemsArea oneCheckoutDet">
+                        <div class="oneCheckoutDetTitlePlusButton">
+                            <h1>Order items</h1>
+                            <button type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M14.1 2.391a3.896 3.896 0 0 1 5.509 5.51l-7.594 7.594c-.428.428-.69.69-.98.917a6 6 0 0 1-1.108.684c-.334.159-.685.276-1.259.467l-2.672.891l-.642.214a1.598 1.598 0 0 1-2.022-2.022l1.105-3.314c.191-.574.308-.925.467-1.259a6 6 0 0 1 .685-1.107c.227-.291.488-.553.916-.98zM5.96 16.885l-.844-.846l.728-2.185c.212-.636.3-.895.414-1.135q.212-.443.513-.83c.164-.21.356-.404.83-.879l5.891-5.89a6.05 6.05 0 0 0 1.349 2.04a6.05 6.05 0 0 0 2.04 1.348l-5.891 5.89c-.475.475-.668.667-.878.83q-.388.302-.83.514c-.24.114-.5.202-1.136.414zm12.116-9.573a4 4 0 0 1-.455-.129a4.5 4.5 0 0 1-1.72-1.084a4.54 4.54 0 0 1-1.084-1.72a4 4 0 0 1-.13-.455l.473-.472a2.396 2.396 0 0 1 3.388 3.388zM3.25 22a.75.75 0 0 1 .75-.75h16v1.5H4a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
+                                </svg>&nbsp;edit</button>
+                        </div>
+                        <div class="checkoutItemsHere">
+                               <!--products items that sgiws uin that??  -->
+                            <div class="oneCheckoutItem">
+                                <div class="itemImageBox">
+                                    <img src="/assets/misc/productItem1.png" alt="">
+                                </div>
+                                <div class="itemDets">
+                                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestiae qui eum recusandae provident aspernatur, non ex, eligendi necessitatibus ducimus maxime id! Accusantium, blanditiis dicta.</h1>
+                                    <div class="variations">
+                                        <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                    </div>
+                                    <div class="unitPrice">
+                                        <p>Unit price:&nbsp;&nbsp;<span>1280.00</span></p>&nbsp;&nbsp;
+                                        <h2>(<span>2</span>x)</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="oneCheckoutItem">
+                                <div class="itemImageBox">
+                                    <img src="/assets/misc/productItem1.png" alt="">
+                                </div>
+                                <div class="itemDets">
+                                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestiae qui eum recusandae provident aspernatur, non ex, eligendi necessitatibus ducimus maxime id! Accusantium, blanditiis dicta.</h1>
+                                    <div class="variations">
+                                        <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                    </div>
+                                    <div class="unitPrice">
+                                        <p>Unit price:&nbsp;&nbsp;<span>1280.00</span></p>&nbsp;&nbsp;
+                                        <h2>(<span>2</span>x)</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+                    </div>
+
+
+                    <!-- checkout paymanet that used paymenst area -->
+                    <div class="checkoutPaymentMethodArea oneCheckoutDet">
+                        <div class="oneCheckoutDetTitlePlusButton">
+                            <h1>Payment method</h1>
+                        </div>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+                                <path fill="currentColor" d="m21.7 6.87l-8.5-3.78a.47.47 0 0 0-.4 0L4.3 6.87a.5.5 0 0 0-.3.45V10c0 4.92 2.94 10.88 8.82 12.94a.56.56 0 0 0 .36 0C19.06 20.88 22 14.92 22 10V7.32a.5.5 0 0 0-.3-.45m-4.012 3.31l-5.28 6.722a.88.88 0 0 1-.636.332l-.052.002a.88.88 0 0 1-.62-.257l-2.72-2.72a.875.875 0 1 1 1.24-1.237l2.022 2.022l4.67-5.945a.876.876 0 0 1 1.377 1.082z" />
+                            </svg>&nbsp;Protected payments</p>
+                        <div class="checkoutPaymentOptions">
+                            <div class="onePaymentOption">
+                                <input type="radio" name="paymentOption" id="cashOnDelivery" checked>
+                                <label for="cashOnDelivery"><span class="circle"></span><img src="/msm_kosmetika_fin/assets/misc/cod.webp" alt=""></label>
+                            </div>
+                            <!-- <div class="onePaymentOption">
+                                <input type="radio" name="paymentOption" id="alfalah">
+                                <label for="alfalah"><span class="circle"></span><img src="/msm_kosmetika_fin/assets/misc/alfalah.webp" alt=""></label>
+                            </div> -->
+                            <div class="onePaymentOption">
+                                <input type="radio" name="paymentOption" id="easypaisa">
+                                <label for="easypaisa"><span class="circle"></span><img src="/msm_kosmetika_fin/assets/misc/cropped-Logo_Blue.png" alt=""></label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- chckout calculaotr for that -->
+                <div class="checkoutCalculationAndAction">
+                    <div class="checkoutDets">
+                        <div class="oneDet">
+                            <h2>subtotal (<span>2</span>&nbsp;items)</h2>
+                            <h1>Rs.&nbsp;<span>1280</span>.00</h1>
+                        </div>
+                        <div class="oneDet">
+                            <h2 class="shippingSpan">shipping</h2>
+                            <h1>Rs.&nbsp;<span>280</span>.00</h1>
+                        </div>
+                        <div class="oneDet">
+                            <h2>voucher&nbsp;(<span></span>)</h2>
+                            <h1><span>-</span>&nbsp;Rs.&nbsp;<span >0</span>.00</h1>
+
+                        </div>
+                        <div class="enterVoucherHere" style="display: flex; align-items: center; gap: 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 24px; height: 24px;">
+                                <path fill="currentColor" d="M11 14v8H7a3 3 0 0 1-3-3v-4a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v4a3 3 0 0 1-3 3h-4v-8zM16.5 2a3.5 3.5 0 0 1 3.163 5H20a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-7V7h-2v5H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h.337A3.5 3.5 0 0 1 4 5.5C4 3.567 5.567 2 7.483 2c1.755-.03 3.312 1.092 4.381 2.934l.136.243c1.033-1.914 2.56-3.114 4.291-3.175zm-9 2a1.5 1.5 0 0 0 0 3h3.143C9.902 5.095 8.694 3.98 7.5 4m8.983 0c-1.18-.02-2.385 1.096-3.126 3H16.5a1.5 1.5 0 1 0-.017-3"></path>
+                            </svg>
+                            <input type="text" placeholder="Enter voucher code" style="padding: 8px; flex: 1;">
+                            <button type="button" style="padding: 8px 16px; background-color: #950f27; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                                Apply
+                            </button>
+                        </div>
+                        
+                        <hr class="detsLine">
+                        <div class="oneDet">
+                            <h2>total</h2>
+                            <h1>Rs.&nbsp;<span>1280</span>.00</h1>
+                        </div>
+                    </div>
+                    <div class="submitBtnArea">
+                        <button class="submitBtn">place order&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                            </svg></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="changeAddressArea">
+        <div class="changeAddressContent">
+            <div class="sideTitlePlusCloseButton">
+                <h1>Change address</h1>
+                <button type="button" onclick="openAddAddress()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10" />
+                            <path stroke-linecap="round" d="M15 12h-3m0 0H9m3 0V9m0 3v3" />
+                        </g>
+                    </svg>&nbsp;Add new</button>
+            </div>
+            <!-- form for add that new addresss -->
+            <form action="" class="changeAddressForm">
+
+                <!-- <div class="oneSavedAddress">
+                    <div class="checkoutAddressSelection">
+                        <input type="radio" name="checkoutAddress" id="checkoutAddress1" checked>
+                        <label for="checkoutAddress1"><span class="circle"></span></label>
+                    </div>
+                    <div class="oneSavedAddressHere">
+                        <p><span id="oneSavedAddressName">salahudin bhatti</span>&nbsp;&nbsp;-&nbsp;&nbsp;<span id="oneSavedAddressPhoneNumber">03123456789</span></p>
+                        <div class="oneSavedAddressAddressArea">
+                            <p><span id="oneSavedAddressAddress">House #ABC, Street #X, XYZ road</span>,&nbsp;<span id="shippingCity">daska</span>,&nbsp;<span id="shippingPostalCode">51010</span></p>
+                            <h2>home</h2>
+                        </div>
+                    </div>
+                </div> -->
+
+               
+                <!-- <div class="oneSavedAddress">
+                    <div class="checkoutAddressSelection">
+                        <input type="radio" name="checkoutAddress" id="checkoutAddress3">
+                        <label for="checkoutAddress3"><span class="circle"></span></label>
+                    </div>
+                    <div class="oneSavedAddressHere">
+                        <p><span id="oneSavedAddressName">salahudin bhatti</span>&nbsp;&nbsp;-&nbsp;&nbsp;<span id="oneSavedAddressPhoneNumber">03123456789</span></p>
+                        <div class="oneSavedAddressAddressArea">
+                            <p><span id="oneSavedAddressAddress">House #ABC, Street #X, XYZ road</span>,&nbsp;<span id="shippingCity">daska</span>,&nbsp;<span id="shippingPostalCode">51010</span></p>
+                            <h2>office</h2>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="changeAddressFormActButtons">
+                    <button class="changeAddressCloseBtn" type="button" onclick="closeChangeAddress()">close</button>
+                    <button class="changeAddressSaveBtn" type="button">save</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="addAddressArea">
+        <div class=" addAddressContent">
+        <div class="sideTitlePlusCloseButton">
+            <h1>Add address</h1>
+            <button type="button" onclick="closeAddAddress()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" />
+                        <path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5" />
+                    </g>
+                </svg>&nbsp;Close</button>
+        </div>
+        <form action="" class="addAddressForm">
+
+            <div class="inputsArea">
+                <div class="oneInput">
+                    <label for="registerFirstName">First name <span>*</span></label>
+                    <input type="text" placeholder="John" name="registerFirstName" id="registerFirstName" required>
+                </div>
+                <div class="oneInput">
+                    <label for="registerLastName">Last name <span>*</span></label>
+                    <input type="text" placeholder="Doe" name="registerLastName" id="registerLastName" required>
+                </div>
+                <div class="oneInput">
+                    <label for="registerPhoneNumber">Phone number <span>*</span></label>
+                    <input type="tel" placeholder="00123456789" name="registerPhoneNumber" id="registerPhoneNumber" required>
+                </div>
+                <div class="oneInput addressArea">
+                    <label for="registerAddress">Address <span>*</span></label>
+                    <input type="text" placeholder="House #ABC, Street #X, XYZ road" name="registerAddress" id="registerAddress" required>
+                </div>
+                <div class="oneInput">
+                    <label for="registerCity">City <span>*</span></label>
+                    <input type="text" placeholder="City" name="registerCity" id="registerCity" required>
+                </div>
+                <div class="oneInput">
+                    <label for="registerPostalCode">Postal code <span>*</span></label>
+                    <input type="text" placeholder="12345" name="registerPostalCode" id="registerPostalCode" required>
+                </div>
+                <div class="oneInput">
+                    <label for="addressOrigin">Address origin <span>*</span></label>
+                    <div class="addressOriginsSelection">
+                        <div class="oneAddressOrigin">
+                            <div class="oneAddressOriginSelection">
+                                <input type="radio" name="addressOrigin" id="addressOriginHome" checked>
+                                <label for="addressOriginHome"><span class="circle"></span></label>
+                            </div>
+                            <h1>home</h1>
+                        </div>
+                        <div class="oneAddressOrigin">
+                            <div class="oneAddressOriginSelection">
+                                <input type="radio" name="addressOrigin" id="addressOriginOffice">
+                                <label for="addressOriginOffice"><span class="circle"></span></label>
+                            </div>
+                            <h1>office</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addAddressFormActButtons">
+                <button class="addAddressSaveBtn" type="button">save</button>
+            </div>
+
+        </form>
+    </div>
+    </div>
+
+
+
+
+    <div class="alert" style="display: none;">
+        <div class="alertBadge">
+            <button onclick=" document.querySelector('.alert').style.display='none'"><svg xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5" />
+            </g></svg></button>
+            <p>Alert data will be shown here. Alert data will be shown here.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- easypayay payemnst deaieldts -->
+
+
+<div id="easypaisaModal" class="payment-modal">
+    <div class="payment-modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Paypro Payment Details</h2>
+
+
+      <form id="easypaisaForm">
+        <div class="form-group">
+          <label for="customerName">Full Name</label>
+          <input type="text" id="customerName" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="customerMobile">Mobile Number</label>
+          <input type="tel" id="customerMobile" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="customerEmail">Email</label>
+          <input type="email" id="customerEmail" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="customerAddress">Address</label>
+          <input type="text" id="customerAddress" required readonly>
+        </div>
+        <button type="submit" class="submit-payment">Proceed with Paypro</button>
+      </form>
+    
+    
+    
+    </div>
+  </div>
+ 
+
+
+
+
+
+
+<!-- SSAAD Alert -->
+<div class="ssaad-alert">
+    <div class="ssaad-alert-badge">
+        <button class="ssaad-close-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5" />
+            </g></svg></button>
+        <p class="ssaad-alert-message"></p>
+    </div>
+</div>
+
+
+
+
+    <!-- JS FILES LINKS -->
+    <script  src="/msm_kosmetika_fin/js/checkout/sidebars.js"></script>
+    <script src="/msm_kosmetika_fin/js/global/pagePreloading.js"></script>
+    <script src="/msm_kosmetika_fin/js/apiscalling/logout.js"></script>
+    <script   type="module"   src="/msm_kosmetika_fin/js/apiscalling/address.js" ></script>
+    <script  type="module"  src="/msm_kosmetika_fin/js/apiscalling/checkout.js"></script>
+<!-- line for wheen yiu will need to add rhart secrutity -->
+    <!-- <script  type="module"  src="/msm_kosmetika_fin/js/apiscalling/disable_security.js"></script> -->
+
+    
+
+
+</body>
+
+</html>
+
+
+
+
+

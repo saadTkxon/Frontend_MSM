@@ -1,0 +1,68 @@
+.alert{
+    width: fit-content;
+    height: auto;
+    padding: 16px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    animation: toUp .25s ease-out;
+}
+
+.alertBadge{
+    position: relative;
+    width: fit-content;
+    max-width: 350px;
+    height: auto;
+    padding: 15px;
+    border-radius: var(--borderRadius1);
+    background: var(--primClr2);
+}
+
+@keyframes toUp{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.alertBadge>button{
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -33px;
+    right: 7px;
+    opacity: 0.75;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.alertBadge>button>svg{
+    width: 25px;
+    height: 25px;
+    stroke-width: 1.5;
+    display: block;
+    color: var(--primClr1);
+    color: white;
+}
+
+.alertBadge>p{
+    font-family: var(--font1);
+    border: 1px solid var(--borderClr);
+    color: white;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 576px) {
+    .alert{
+        padding: 8px;
+    }
+    .alertBadge{
+        width: 100%;
+        max-width: 100%;
+    }
+}

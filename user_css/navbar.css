@@ -1,0 +1,91 @@
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    position: relative;
+}
+
+.navLogo{
+    width: fit-content;
+    height: fit-content;
+}
+
+.navLogo>img{
+    width: 90px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.15));
+}
+
+.navLinks{
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navLinks>a{
+    font-family: var(--font1);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: black;
+    text-decoration: none;
+}
+
+.navAccButtons{
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.navAccButtons>button {
+    height: 100%;
+    width: auto;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--borderRadiusInside1);
+    cursor: pointer;
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+.navSearchButton, .navAccountButton{
+    padding: 10px 0;
+    background-color: transparent;    
+    color: black;
+    display: flex;
+}
+
+.navSearchButton>svg, .navAccountButton>svg {
+    width: 27px;
+    height: 27px;
+    display: block;
+    stroke-width: 1.5;
+}
+
+.navCartButton, .navMenuButton{
+    padding: 10px 15px;
+    background-color: var(--primClr1);
+    color: white;
+    display: flex;
+}
+
+.navCartButton>svg, .navMenuButton>svg {
+    width: 23px;
+    height: 23px;
+    display: block;
+    stroke-width: 1.5;
+}
+
+.navMenuButton{
+    display: none;
+}

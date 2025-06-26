@@ -1,0 +1,244 @@
+.oneCartItem {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    padding: 11px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.cartItemSelection {
+    width: fit-content;
+    height: fit-content;
+}
+
+.cartItemSelection>input[type='checkbox'] {
+    display: none;
+}
+
+.cartItemSelection>label {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.cartItemSelection>label>.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+}
+
+.cartItemSelection>label>.circle::before {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: var(--primClr2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.cartItemSelection>input[type='checkbox']:checked+label>.circle {
+    border-color: var(--borderClr);
+}
+
+.cartItemSelection>input[type='checkbox']:checked+label>.circle::before {
+    display: block;
+}
+
+.itemImageBox {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.oneCartItem:nth-child(even) .itemImageBox {
+    background-color: #EEB108;
+}
+
+.oneCartItem:nth-child(odd) .itemImageBox {
+    background-color: #CCE8FE;
+}
+
+.itemImageBox>img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    display: block;
+}
+
+.itemDets {
+    width: 100%;
+    height: auto;
+    min-height: 85px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 2px 0 2px 3px;
+}
+
+.itemDets>h1 {
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.variations>p{
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.unitPrice {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.unitPrice>p,
+.finalPrices>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.unitPrice>p>span,
+.finalPrices>p>span {
+    font-weight: 500;
+}
+
+.unitPrice>h2 {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: line-through;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.finalPrices {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.increasingQuantity {
+    display: flex;
+    align-items: center;
+}
+
+.increasingQuantity>button {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.increasingQuantity>button>svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    color: var(--primClr1);
+}
+
+.increasingQuantity>input {
+    text-align: center;
+    font-family: var(--font1);
+    font-size: 15px;
+    width: 30px;
+    border: none;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+.increasingQuantity>input::-webkit-outer-spin-button,
+.increasingQuantity>input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.deleteItemBox {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+}
+
+.deleteItemBtn {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.deleteItemBtn>svg {
+    width: 23px;
+    height: 23px;
+    stroke-width: 1.5;
+    display: block;
+    color: var(--primClr1);
+}
+
+@media only screen and (max-width: 576px) {
+    .oneCartItem {
+        padding: 10px;
+        gap: 10px;
+    }
+    .itemImageBox {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        min-height: 70px;
+    }
+    .itemDets {
+        min-height: 80px;
+        padding: 1px 0 1px 3px;
+    }
+
+    .itemDets>h1 {
+        font-size: 12px;
+    }
+    .variations>p{
+        font-size: 11px;
+    }
+
+    .unitPrice>p,
+    .finalPrices>p {
+        font-size: 11px;
+    }
+    .unitPrice>h2 {
+        font-size: 11px;
+    }
+}

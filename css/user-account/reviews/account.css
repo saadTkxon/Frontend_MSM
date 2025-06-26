@@ -1,0 +1,271 @@
+body {
+    background: url(/assets/misc/background.webp);
+    background-position: center center;
+}
+
+.accountScreen {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.accountArea {
+    width: 100%;
+    max-width: 640px;
+    height: 100%;
+}
+
+.accountForm {
+    width: 100%;
+    height: 100%;
+    padding: 30px 0 170px 0;
+}
+
+.goBack {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+    padding-left: 5px;
+}
+
+.goBack>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: flex;
+}
+
+.pageTitle {
+    font-family: var(--font1);
+    font-size: 32px;
+    text-transform: capitalize;
+    line-height: 0.8;
+    letter-spacing: 1px;
+    margin: 11px 0 24px 0;
+    padding-left: 9px;
+}
+
+.accountDetsHere {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.accountOrdersHere {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    padding: 15px;
+}
+
+.orderFilterButtons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.orderFilterButtons>button {
+    width: fit-content;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-family: var(--font1);
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.15s;
+    position: relative;
+}
+
+.orderFilterButtons>button::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: var(--borderRadiusInside1);
+    background-color: var(--primClr2);
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    display: none;
+    transition: 0.15s;
+}
+
+.orderFilterButtons>button[aria-selected="true"]::after {
+    display: block;
+}
+
+.orderSelectionFilter {
+    margin: 9px 0 15px 0;
+    width: 100%;
+    height: auto;
+}
+
+.orderSelectionFilter>select {
+    width: 100%;
+    border: 1px solid var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    background-color: rgba(0, 0, 0, 0.035);
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 7px 9px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.accountOrdersArea {
+    width: 100%;
+    height: auto;
+}
+
+.ordersPack {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    gap: 9px;
+    animation: opacity 0.3s;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.empty {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: var(--font1);
+    background-color: rgba(0, 0, 0, 0.035);
+    border: 1px solid var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    padding: 50px 0;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.empty>svg {
+    width: 27px;
+    height: 27px;
+    stroke-width: 1.3;
+    display: block;
+}
+
+.userBottomNav {
+    width: calc(100% - 32px);
+    max-width: 640px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border-top-left-radius: var(--borderRadius1);
+    border-top-right-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    padding: 15px;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+}
+
+.userBottomNav>a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    background-color: rgba(0, 0, 0, 0.035);
+    text-decoration: none;
+    color: black;
+    padding: 9px 0;
+}
+
+.userBottomNav>a[aria-selected="true"] {
+    background-color: var(--primClr1);
+    color: white;
+}
+
+.userBottomNav>a>svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.6;
+    display: block;
+}
+
+.userBottomNav>a>span {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 576px) {
+    .accountScreen {
+        padding: 0px 8px;
+    }
+
+    .pageTitle {
+        font-size: 29px;
+    }
+
+    .orderFilterButtons {
+        gap: 13px;
+    }
+
+    .orderFilterButtons>button {
+        font-size: 13px;
+    }
+
+    .orderSelectionFilter>select {
+        font-size: 13px;
+    }
+
+    .userBottomNav {
+        width: calc(100% - 16px);
+        padding: 9px;
+    }
+}

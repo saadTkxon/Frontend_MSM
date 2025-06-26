@@ -1,0 +1,53 @@
+body {
+    background: url(/assets/misc/background.webp);
+    background-position: center center;
+}
+
+.adminScreen {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+}
+
+.adminArea{
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    margin-left: 302px;
+    padding: 0 0 100px 0;
+}
+
+.adminAreaLogoBar{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 3%;
+    margin-bottom: 24px;
+}
+
+.logoArea{
+    width: fit-content;
+    height: calc(100% - 2px);
+}
+
+.logoArea>a>img{
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.adminContentHere{
+    width: 100%;
+    height: auto;
+}

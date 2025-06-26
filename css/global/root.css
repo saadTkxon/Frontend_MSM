@@ -1,0 +1,10 @@
+:root{
+    --font1: "Hellix";
+    --primClr1: #950f27;
+    --primClr2: #bc9c22;
+    --borderRadius1: 12px;
+    --borderRadiusInside1: 8px;
+    --borderClr: rgba(188, 157, 34, 0.37);
+    --borderBlk: rgba(0, 0, 0, 0.1);
+    --shadow1:  rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}

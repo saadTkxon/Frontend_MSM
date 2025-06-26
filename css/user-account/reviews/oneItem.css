@@ -1,0 +1,190 @@
+.oneReviewItem {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px;
+    border: 1px solid var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.itemImageBox {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.oneReviewItem:nth-child(even) .itemImageBox {
+    background-color: #EEB108;
+}
+
+.oneReviewItem:nth-child(odd) .itemImageBox {
+    background-color: #CCE8FE;
+}
+
+.itemImageBox>img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    display: block;
+}
+
+.itemDets {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 2px 0 2px 3px;
+    text-align: left;
+}
+
+.itemDets>h1 {
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.variations>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.detsPlusAcc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.placedOn {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.placedOn>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.placedOn>p>span {
+    font-weight: 500;
+}
+
+.givenReview {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.givenReview>.stars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    line-height: 0.75;
+    font-size: 19px;
+    text-shadow: 0 0 2px black;
+}
+
+.givenReview>.stars>.positive{
+    color: gold;    
+}
+
+.givenReview>.stars>.negative{
+    color: gray;    
+}
+
+.givenReview>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.accButton {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+    text-transform: capitalize;
+}
+
+.accButton>svg {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2;
+    display: block;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .oneReviewItem {
+        padding: 10px;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .itemDets {
+        padding: 1px 0 1px 3px;
+    }
+
+    .itemDets>h1 {
+        font-size: 12px;
+    }
+
+    .variations>p {
+        font-size: 11px;
+    }
+
+    .placedOn>p,
+    .givenReview>p {
+        font-size: 11px;
+    }
+
+    .detsPlusAcc{
+        margin-top: 9px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .accButton {
+        font-size: 11px;
+    }
+    
+    .accButton>svg {
+        width: 12px;
+        height: 12px;
+    }
+}

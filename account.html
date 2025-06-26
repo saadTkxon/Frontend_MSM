@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON LINKS -->
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="M$M Kosmetika" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- CSS FILES LINKS -->
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/fonts.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/root.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/loading.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/alert.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/account/account.css">
+    <!-- WEBSITE TITLE -->
+    <title>M$M - Account</title>
+</head>
+
+<body onload="hidePagePreloading()">
+
+    <div class="pagePreloading">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="loading" style="display: none;">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="logoArea">
+        <a href=""><img src="/msm_kosmetika_fin/assets/branding/logoOne.webp" alt=""></a>
+    </div>
+
+    <div class="formScreen">
+        <div class="formArea">
+
+            <div class="accountChoice">
+                <button id="accountLoginBtn" onclick="openLogin()">login</button>
+                <button id="accountRegisterBtn" onclick="openRegister()">register</button>
+            </div>
+
+            <div class="accountArea">
+
+                <form action="" class="registerForm" id="registerForm">
+                    <div class="inputsArea">
+                        <div class="oneInput">
+                            <label for="registerFirstName">First name <span>*</span></label>
+                            <input type="text" placeholder="John" name="registerFirstName" id="registerFirstName" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerLastName">Last name <span>*</span></label>
+                            <input type="text" placeholder="Doe" name="registerLastName" id="registerLastName" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerEmail">E-mail <span>*</span></label>
+                            <input type="email" placeholder="abc@example.com" name="registerEmail" id="registerEmail" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerPhoneNumber">Phone number <span>*</span></label>
+                            <input type="tel" placeholder="00123456789" name="registerPhoneNumber" id="registerPhoneNumber" required>
+                        </div>
+                        <div class="oneInput addressArea">
+                            <label for="registerAddress">Address <span>*</span></label>
+                            <input type="text" placeholder="House #ABC, Street #X, XYZ road" name="registerAddress" id="registerAddress" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerCity">City <span>*</span></label>
+                            <input type="text" placeholder="City" name="registerCity" id="registerCity" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerPostalCode">Postal code <span>*</span></label>
+                            <input type="text" placeholder="12345" name="registerPostalCode" id="registerPostalCode" required>
+                        </div>
+                        <div class="oneInput addressOriginsSelectionArea">
+                            <label for="addressOrigin">Address origin <span>*</span></label>
+                            <div class="addressOriginsSelection">
+                                <div class="oneAddressOrigin">
+                                    <div class="oneAddressOriginSelection">
+                                        <input type="radio" name="addressOrigin" id="addressOriginHome" checked>
+                                        <label for="addressOriginHome"><span class="circle"></span></label>
+                                    </div>
+                                    <h1>home</h1>
+                                </div>
+                                <div class="oneAddressOrigin">
+                                    <div class="oneAddressOriginSelection">
+                                        <input type="radio" name="addressOrigin" id="addressOriginOffice">
+                                        <label for="addressOriginOffice"><span class="circle"></span></label>
+                                    </div>
+                                    <h1>office</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerPassword">Password <span>*</span></label>
+                            <input type="password" placeholder="Password" name="registerPassword" id="registerPassword" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="registerConfirmPassword">Confirm password <span>*</span></label>
+                            <input type="password" placeholder="Password" name="registerConfirmPassword" id="registerConfirmPassword" required>
+                        </div>
+                    </div>
+                    <h3 class="agreeStatement">By clicking "Continue", you agree to our <a href="">Privacy Policy</a> and <a href="">Terms of Service</a>.</h3>
+                    <div class="submitBtnArea">
+                        <button class="submitBtn">continue&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                            </svg></button>
+                    </div>
+                </form>
+
+                <form action="" class="loginForm" id="loginForm">
+                    <div class="inputsArea">
+                        <div class="oneInput">
+                            <label for="loginEmail">E-mail <span>*</span></label>
+                            <input type="email" placeholder="abc@example.com" name="loginEmail" id="loginEmail" required>
+                        </div>
+                        <div class="oneInput">
+                            <label for="loginPassword">Password <span>*</span></label>
+                            <input type="password" placeholder="Password" name="loginPassword" id="loginPassword" required>
+                        </div>
+                    </div>
+                    <div class="rememberAndForget">
+                        <div class="rememberMe">
+                            <label class="checkbox" for="rememberMe">
+                                <input type="checkbox" name="rememberMe" id="rememberMe" checked>
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="forgetPass">
+                            <a href="http://127.0.0.1:5500/msm_kosmetika_fin/reset-password.html">Forget password?</a>
+                        </div>
+                    </div>
+                    <div class="submitBtnArea">
+                        <button class="submitBtn">continue&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                            </svg></button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="alert" style="display: none;">
+        <div class="alertBadge">
+            <button onclick="document.querySelector('.alert').style.display = 'none'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5"/></g></svg></button>
+            <p>Alert data will be shown here. Alert data will be shown here.</p>
+        </div>
+    </div>
+
+    <!-- JS FILES LINKS -->
+    <script src="/msm_kosmetika_fin/js/global/pagePreloading.js"></script>
+    <script src="/msm_kosmetika_fin/js/account/account.js"></script>
+    <script src="/msm_kosmetika_fin/js/apiscalling/user.js"></script>
+
+  
+   
+   
+
+
+
+</body>
+
+
+
+
+
+<!-- 
+<script>
+    document.getElementById("registerForm").addEventListener("submit", async (event) => {
+ console.log("Form submission started...");
+
+ event.preventDefault(); // Stop form from refreshing the page
+ console.log("Default form submission prevented.");
+
+ // Collect form data
+ const formData = {
+   first_name: document.getElementById("registerFirstName").value,
+   last_name: document.getElementById("registerLastName").value,
+   email: document.getElementById("registerEmail").value,
+   phone_number: document.getElementById("registerPhoneNumber").value,
+   city: document.getElementById("registerCity").value,
+   postal_code: document.getElementById("registerPostalCode").value,
+   password: document.getElementById("registerPassword").value,
+   addresses: [
+     {
+       address: document.getElementById("registerAddress").value,
+       address_origin: document.getElementById("addressOriginHome").checked ? "home" : "office"
+     }
+   ]
+ };
+
+ console.log("Form data collected:", formData);
+
+ // Check if passwords match
+ const password = document.getElementById("registerPassword").value;
+ const confirmPassword = document.getElementById("registerConfirmPassword").value;
+ console.log("Password entered:", password);
+ console.log("Confirm password entered:", confirmPassword);
+
+ if (password !== confirmPassword) {
+   alert("Passwords do not match!");
+   console.warn("Passwords do not match!");
+   return;
+ }
+ console.log("Passwords match. Proceeding with API call...");
+
+ // Send the data to the backend API
+ try {
+   console.log("Sending data to the backend...");
+   const response = await fetch("http://localhost:5000/usertrs/signup_user", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(formData),
+   });
+
+   console.log("Response received:", response);
+   const result = await response.json();
+   console.log("Result received:", result);
+
+   if (result.status === "success") {
+     alert("User registered successfully!");
+     console.log("User registered successfully!");
+     window.location.href = "/login.html";  // Redirect to login page
+   } else {
+     alert(`Error: ${result.message}`);
+     console.error("Error from backend:", result.message);
+   }
+ } catch (error) {
+   console.error("Error during API call:", error);
+   alert("Failed to connect to the server.");
+ }
+ console.log("Form submission process completed.");
+});
+
+
+
+</script>
+    -->
+</html>

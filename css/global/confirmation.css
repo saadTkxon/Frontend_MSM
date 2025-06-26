@@ -1,0 +1,67 @@
+.confirmation{
+    width: 100%;
+    height: 100svh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    padding: 30px 8px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: confirmation 0.3s ease-out;
+}
+
+@keyframes confirmation{
+    from{opacity: 0; transform: translateY(110%);}
+    to{opacity: 1; transform: translateY(0%);}
+}
+
+.confirmationAreaContent{
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 100px 0;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    overflow-y: auto;
+}
+
+.confirmationAreaContent>h1{
+    font-family: var(--font1);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 24px 24px 30px 24px;
+}
+
+.confirmationButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--borderBlk);
+}
+
+.confirmationButtons>button{
+    width: 100%;
+    height: 45px;
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: 0.25s ease-out;
+}
+
+.confirmationButtons>button:hover{
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.confirmationButtons>button:nth-child(1){
+    border-right: 1px solid var(--borderBlk);
+}

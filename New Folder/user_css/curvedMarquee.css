@@ -1,0 +1,52 @@
+.curvedMarquee{
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.elementPicture{
+    width: 300px;
+    height: auto;
+    display: block;
+    border-radius: var(--borderRadius1);
+    rotate: 7deg;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.curvedMarquee h1 {
+    position: absolute;
+    left: 0;
+	height: auto;
+	display: flex;
+	align-items: center;
+    font-family: var(--font2);
+	font-size: 3.5rem;
+    fill: var(--primClr3);
+    mix-blend-mode: hard-light;
+    padding: 100px 0;
+}
+
+.curvedMarquee svg {
+	user-select: none;
+	height: 240px;
+	overflow: visible;
+}
+
+@media only screen and (max-width: 768px) {
+    .elementPicture{
+        width: 250px;
+    }
+    .curvedMarquee h1 {
+        font-size: 3.37rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .elementPicture{
+        width: 200px;
+    }
+}

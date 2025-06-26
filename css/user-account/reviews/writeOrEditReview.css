@@ -1,0 +1,356 @@
+.writeOrEditReviewArea {
+    width: 100%;
+    max-width: 440px;
+    height: 100svh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 500;
+    padding: 8px;
+    transition: 0.3s ease-out;
+    opacity: 0;
+    transform: translateX(110%);
+}
+
+.writeOrEditReviewAreaContent {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    padding: 16px 16px 100px 16px;
+    overflow-y: auto;
+}
+
+.sideTitlePlusCloseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.sideTitlePlusCloseButton>h1 {
+    font-family: var(--font1);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.sideTitlePlusCloseButton>button {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+}
+
+.sideTitlePlusCloseButton>button>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.reviewNote {
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 11px;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.reviewNote>h1 {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.reviewNote>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+    letter-spacing: 0.5px;
+    line-height: 1.35;
+}
+
+.afterNoteLine{
+    width: 94%;
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid var(--borderBlk);
+    margin: 24px auto 24px auto;
+}
+
+.reviewProductHere {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 24px;
+}
+
+.ratingStars {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 9px;
+}
+
+.ratingStars>h1 {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.rating:not(:checked)>input {
+    position: absolute;
+    appearance: none;
+}
+
+.rating:not(:checked)>label {
+    float: right;
+    cursor: pointer;
+    color: gray;
+    transition: 0.25s ease-out;
+    font-size: 27px;
+    text-shadow: 0 0 2px black;
+    margin-left: 2px;
+}
+
+.rating:not(:checked)>label:before {
+    content: '★';
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked+label:hover~label,
+.rating>input:checked~label:hover,
+.rating>input:checked~label:hover~label,
+.rating>label:hover~input:checked~label {
+    color: rgb(236, 201, 0)
+}
+
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: rgba(255, 217, 0, 0.9);
+}
+
+.rating>input:checked~label {
+    color: gold;
+}
+
+.reviewImages{
+    margin-bottom: 24px;
+}
+
+.custum-file-upload {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    color: gray;
+}
+
+.custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+    height: 30px;
+    stroke-width: 1.5;
+}
+
+.custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .text span {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.custum-file-upload input {
+    display: none;
+}
+
+
+.previewImages{
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.oneImageBox{
+    width: 65px;
+    height: 65px;
+    border-radius: var(--borderRadiusInside1);
+    position: relative;
+}
+
+.oneImageBox>a{
+    width: fit-content;
+    height: fit-content;
+}
+
+.oneImageBox>a>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+}
+
+.oneImageBox>button{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oneImageBox>button>svg{
+    width: 21px;
+    height: 21px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.titlePlusInput {
+    width: 100%;
+    height: auto;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.035);
+    outline: none;
+    overflow: hidden;
+}
+
+.titlePlusInput>h1 {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 11px 11px 0 11px;
+}
+
+.titlePlusInput>textarea {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+    border: none;
+    outline: none;
+    padding: 7px 11px 11px 11px;
+    background-color: transparent;
+    font-family: var(--font1);
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.inputPlusAccBtn>textarea:focus {
+    border: 1px solid var(--borderClr);
+}
+
+.inputPlusAccBtn>button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: var(--font1);
+    cursor: pointer;
+    background-color: var(--primClr1);
+    color: white;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 576px) {
+    .writeOrEditReviewArea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sideTitlePlusCloseButton>h1 {
+        font-size: 16px;
+    }
+
+    .sideTitlePlusCloseButton>button {
+        font-size: 13px;
+    }
+
+    .sideTitlePlusCloseButton>button>svg {
+        width: 14px;
+        height: 14px;
+    }
+    .reviewNote>h1 {
+        font-size: 13px;
+    }
+
+    .reviewProductHere>.oneProduct {
+        padding: 10px;
+    }
+
+    .ratingStars>h1 {
+        font-size: 13px !important;
+    }
+    .rating:not(:checked)>label {
+        font-size: 23px;
+    }
+    .custum-file-upload .text span {
+        font-size: 13px;
+    }
+    .oneImageBox{
+        width: 55px !important;
+        height: 55px !important;
+    }
+    .titlePlusInput>h1 {
+        font-size: 13px;
+        padding: 10px 10px 0 10px;
+    }
+    .inputPlusAccBtn>button {
+        height: 35px;
+        font-size: 14px;
+    }
+}

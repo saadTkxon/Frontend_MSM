@@ -1,0 +1,93 @@
+.reviewsScreen{
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.reviewsHere{
+    width: 95%;
+    max-width: 1800px;
+    columns: 5;
+    column-gap: 17px;
+}
+
+.oneReview{
+    width: 100%;
+    height: auto;
+    break-inside: avoid;
+    padding: 30px;
+    border-radius: 0.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #f1eadb9a;
+    margin-bottom: 17px;
+}
+
+.revStars {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    line-height: 0.75;
+    font-size: 23px;
+    margin-bottom: 9px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    color: gold;
+}
+
+.oneReview>p{
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.revDets{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.revPicture{
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    position: relative;
+}
+
+.revPicture::before{
+    content: '';
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background-color: #ebccb5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.revPicture>img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    transform: rotate(-27deg);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.revDetsArea>h1{
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 3px;
+}
+
+.revDetsArea>p{
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: capitalize;
+}

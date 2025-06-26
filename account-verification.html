@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON LINKS -->
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="M$M Kosmetika" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- CSS FILES LINKS -->
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/fonts.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/root.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/loading.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/alert.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/account/acountVerification.css">
+    <!-- WEBSITE TITLE -->
+    <title>M$M - Account Verification</title>
+</head>
+
+<body onload="hidePagePreloading()">
+
+    <div class="pagePreloading">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="loading" style="display: none;">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="logoArea">
+        <a href=""><img src="/msm_kosmetika_fin/assets/branding/logoOne.webp" alt=""></a>
+    </div>
+    <div class="formScreen">
+        <div class="formArea">
+            <div class="accountArea">
+                <button class="goBack" onclick="window.location.href='account.html';">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="m8.165 11.63l6.63-6.43C15.21 4.799 16 5.042 16 5.57v12.86c0 .528-.79.771-1.205.37l-6.63-6.43a.5.5 0 0 1 0-.74" />
+                    </svg>
+                    &nbsp;Go back
+                </button>
+    
+                <form action="" class="resetPasswordForm" id="resetPasswordForm">
+                    <h1>Enter verification code</h1>
+                    <p>Your verification code is sent to: <span id="userEmail">abe@example.com</span></p>
+                    <div class="otp-input">
+                        <input type="number" min="0" max="9" placeholder="1" required>
+                        <input type="number" min="0" max="9" placeholder="2" required>
+                        <input type="number" min="0" max="9" placeholder="3" required>
+                        <input type="number" min="0" max="9" placeholder="4" required>
+                    </div>
+                    <h2 class="resendCode">
+                        Didn't get the code yet?&nbsp;
+                        <button type="button" id="resendOtpBtn">Resend in&nbsp;<span id="countdown">27s</span></button>
+                    </h2>
+                    <div class="submitBtnArea">
+                        <button type="submit" class="submitBtn">
+                            continue&nbsp;&nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="alert" style="display: block;">
+        <div class="alertBadge">
+            <button onclick="document.querySelector('.alert').style.display = 'none'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5"/></g></svg></button>
+            <p>Alert data will be shown here. Alert data will be shown here.</p>
+        </div>
+    </div>
+
+    <!-- JS FILES LINKS -->
+    <script src="/msm_kosmetika_fin/js/global/pagePreloading.js"></script>
+    <script src="/msm_kosmetika_fin/js/account/acountVerification.js"></script>
+    <script src="/msm_kosmetika_fin/js/account/verify.js"></script>
+
+
+
+
+</body>
+
+</html>

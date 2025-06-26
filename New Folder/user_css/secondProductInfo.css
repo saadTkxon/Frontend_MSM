@@ -1,0 +1,329 @@
+.secondProductInfo {
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.secondProductInfo>.innerSpacing {
+    width: 95%;
+    max-width: 1800px;
+    height: auto;
+    position: relative;
+    z-index: -1;
+}
+
+.secondProductDets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.secondProductDisplayBox {
+    width: 100%;
+    /* max-width: 550px; */
+    height: 750px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 80px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4FAFD2;
+    transition: 0.5s ease;
+    /* border: 1px solid var(--borderBlk); */
+    box-shadow: var(--shadow1);
+}
+
+.secondProductWritingBackgroundPicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.secondProductDisplayPicture {
+    position: relative;
+    z-index: 1;
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(186, 90, 135, 0.5));
+}
+
+.secondProductDetsBoxOne,
+.secondProductDetsBoxTwo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.035);
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    overflow: hidden;
+}
+
+.secondProductDetsBoxOne {
+    border-top-left-radius: 150px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 150px;
+}
+
+.secondProductDetsBoxOne>.secondProductDetBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('/msm_kosmetika_fin/user_assets/misc/SecondProductDetOne.png');
+    background-size: cover;
+    background-position: bottom;
+    /* opacity: 0.5; */
+}
+
+.secondProductDetsBoxOne>button {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font1);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--primClr1);
+    text-transform: capitalize;
+    padding-top: 50px;
+}
+
+.secondProductDetsBoxOne>button>span {
+    font-family: var(--font2);
+    color: var(--primClr2);
+    font-size: 35px;
+    margin-top: -2%;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.secondProductDetsBoxTwo {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 80px;
+    background-color: #EAE2E7;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 50px;
+    padding: 24px 30px;
+}
+
+.secondProductDetsBoxTwo>.secondProductDetBackground {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:
+        linear-gradient(transparent, #EAE2E7),
+        url('/msm_kosmetika_fin/user_assets/misc/SecondProductDetTwo.png');
+    background-size: cover;
+    background-position: top;
+}
+
+.secondProductDetsBoxTwo>p {
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: 400;
+    width: 90%;
+    max-width: 750px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+}
+
+.secondProductDetsBoxTwo>h1 {
+    position: relative;
+    z-index: 1;
+    width: 50%;
+    text-align: right;
+    font-family: var(--font2);
+    text-transform: capitalize;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 24px;
+    color: var(--primClr3);
+    position: relative;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1400px) {
+    .secondProductDisplayBox {
+        height: 650px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+        border-bottom-right-radius: 65px;
+    }
+
+    .secondProductDisplayPicture {
+        width: 130px;
+    }
+
+    .secondProductDetsBoxOne {
+        border-top-left-radius: 130px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 65px;
+        border-bottom-right-radius: 130px;
+    }
+
+    .secondProductDetsBoxOne>button {
+        font-size: 19px;
+    }
+
+    .secondProductDetsBoxOne>button>span {
+        font-size: 30px;
+    }
+
+    .secondProductDetsBoxTwo {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+        border-bottom-right-radius: 65px;
+    }
+
+    .secondProductDetsBoxTwo>p {
+        font-size: 14px;
+    }
+
+    .secondProductDetsBoxTwo>h1 {
+        font-size: 38px;
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .secondProductDisplayPicture {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .secondProductDisplayBox {
+        height: 550px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 110px;
+        border-bottom-left-radius: 110px;
+        border-bottom-right-radius: 55px;
+    }
+
+    .secondProductDisplayPicture {
+        width: 110px;
+    }
+
+    .secondProductDetsBoxOne {
+        border-top-left-radius: 110px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 55px;
+        border-bottom-right-radius: 110px;
+    }
+
+    .secondProductDetsBoxOne>button {
+        font-size: 17px;
+    }
+
+    .secondProductDetsBoxOne>button>span {
+        font-size: 27px;
+    }
+
+    .secondProductDetsBoxTwo {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 110px;
+        border-bottom-left-radius: 110px;
+        border-bottom-right-radius: 55px;
+    }
+
+    .secondProductDetsBoxTwo>p {
+        font-size: 12px;
+    }
+
+    .secondProductDetsBoxTwo>h1 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .secondProductDets {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secondProductDisplayBox {
+        width: 100%;
+        height: 450px;
+        border-top-left-radius: 5vw;
+        border-top-right-radius: 25vw;
+        border-bottom-left-radius: 25vw;
+        border-bottom-right-radius: 10vw;
+    }
+
+    .secondProductDisplayPicture {
+        width: 110px;
+    }
+
+    .secondProductDetsBoxOne,
+    .secondProductDetsBoxTwo {
+        height: 105vw;
+    }
+
+    .secondProductDetsBoxOne {
+        border-top-left-radius: 25vw;
+        border-top-right-radius: 10vw;
+        border-bottom-left-radius: 5vw;
+        border-bottom-right-radius: 25vw;
+    }
+
+    .secondProductDetsBoxOne>button {
+        padding-top: 7%;
+        font-size: 3vw;
+    }
+
+    .secondProductDetsBoxOne>button>span {
+        font-size: 5vw;
+    }
+
+    .secondProductDetsBoxTwo {
+        border-top-left-radius: 5vw;
+        border-top-right-radius: 25vw;
+        border-bottom-left-radius: 25vw;
+        border-bottom-right-radius: 10vw;
+    }
+
+    .secondProductDetsBoxTwo>p {
+        font-size: 2.3vw;
+    }
+
+    .secondProductDetsBoxTwo>h1 {
+        font-size: 6.7vw;
+        width: 50%;
+    }
+}

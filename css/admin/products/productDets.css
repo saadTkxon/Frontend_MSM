@@ -1,0 +1,307 @@
+.addProductArea, .editOrDeleteProductArea{
+    width: 100%;
+    height: 100svh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    padding: 30px 8px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.addProductAreaContent, .editOrDeleteProductAreaContent {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    max-height: 100%;
+    margin: 100px 0;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.sideTitlePlusCloseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.sideTitlePlusCloseButton>h1 {
+    font-family: var(--font1);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.sideTitlePlusCloseButton>button {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+}
+
+.sideTitlePlusCloseButton>button>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.productDetsForm, .productEditOrDeleteForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.oneInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.oneInput>label {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding-left: 7px;
+    letter-spacing: 0.5px;
+}
+
+.oneInput>label>span {
+    color: red;
+}
+
+.oneInput>label>b {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.oneInput>input{
+    width: 100%;
+    height: 40px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 0 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    outline: none;
+}
+
+.oneInput>textarea {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    resize: vertical;
+    outline: none;
+}
+
+.oneInput>select{
+    width: 100%;
+    height: 40px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 0 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.oneInput>input:focus, .oneInput>textarea:focus, .oneInput>select:focus {
+    border: 1px solid var(--borderClr);
+}
+
+.twoInputs{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.checkableElements{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.oneCheckableElement>label{
+    width: fit-content;
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--borderRadiusInside1);
+    border: 2px dashed var(--borderBlk);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    font-family: var(--font1);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    transition: 0.15s ease-out;
+}
+
+.oneCheckableElement>input[type='checkbox']{
+    display: none;
+}
+
+.oneCheckableElement>input[type='checkbox']:checked+label{
+    background-color: var(--primClr2);
+    border: 2px solid var(--borderClr);
+    color: white;
+}
+
+.custum-file-upload {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 9px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--borderBlk);
+    border-radius: var(--borderRadiusInside1);
+    color: gray;
+}
+
+.custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+    height: 27px;
+    stroke-width: 1.5;
+}
+
+.custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .text span {
+    font-family: var(--font1);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.custum-file-upload input {
+    display: none;
+}
+
+.previewImages{
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.oneImageBox{
+    width: 65px;
+    height: 65px;
+    border-radius: var(--borderRadiusInside1);
+    position: relative;
+}
+
+.oneImageBox>a{
+    width: fit-content;
+    height: fit-content;
+}
+
+.oneImageBox>a>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+}
+
+.oneImageBox>button{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oneImageBox>button>svg{
+    width: 21px;
+    height: 21px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.submitBtnArea {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--borderRadiusInside1);
+    background-color: var(--primClr1);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: var(--font1);
+    cursor: pointer;
+}

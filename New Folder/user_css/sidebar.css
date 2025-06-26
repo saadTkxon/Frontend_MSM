@@ -1,0 +1,136 @@
+.sidebar {
+    width: 440px;
+    min-width: 440px;
+    height: 100svh;
+    transition: 0.3s ease-out;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    padding: 8px;
+    opacity: 0;
+    transform: translateX(110%);
+}
+
+.sidebarContext {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    padding: 16px 16px 100px 16px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.sideTitlePlusCloseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.sideTitlePlusCloseButton>h1 {
+    font-family: var(--font1);
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.sideTitlePlusCloseButton>button {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+}
+
+.sideTitlePlusCloseButton>button>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.sidebarLinks{
+    width: 100%;
+    height: auto;
+    margin-bottom: 9px;
+    border-radius: var(--borderRadiusInside1);
+    background-color: rgba(0, 0, 0, 0.035);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.sidebarLinks>a{
+    font-family: var(--font1);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.sidebarCartButton {
+    height: auto;
+    width: 100%;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--borderRadiusInside1);
+    cursor: pointer;
+    font-family: var(--font1);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+.sidebarCartButton{
+    padding: 13px 15px;
+    background-color: var(--primClr1);
+    color: white;
+    display: flex;
+}
+
+.sidebarCartButton>svg {
+    width: 23px;
+    height: 23px;
+    display: block;
+    stroke-width: 1.75;
+}
+
+.sidebarFaceImage{
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    width: 27%;
+    height: auto;
+    opacity: 0.07;
+}
+
+@media only screen and (max-width: 1400px) {
+    .sidebar {
+        width: 360px;
+        min-width: 360px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+    }
+}

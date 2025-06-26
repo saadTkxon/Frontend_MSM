@@ -1,0 +1,406 @@
+body {
+    background: url(/assets/misc/background.webp);
+    background-position: center center;
+}
+
+.logoArea {
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 24px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 30px 0;
+}
+
+.logoArea>a {
+    width: fit-content;
+    height: fit-content;
+}
+
+.logoArea>a>img {
+    width: 150px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.1));
+}
+
+.formScreen {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 160px 16px;
+}
+
+.formArea {
+    width: 100%;
+    max-width: 512px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountChoice {
+    width: 100%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 7px;
+}
+
+.accountChoice>button {
+    font-family: var(--font1);
+    width: 100%;
+    height: 40px;
+    border-radius: var(--borderRadiusInside1);
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.accountChoice>button[aria-selected="true"] {
+    background: var(--primClr1);
+    color: white;
+    font-weight: 500;
+}
+
+.accountChoice>button[aria-selected="false"] {
+    background-color: transparent;
+    color: black;
+}
+
+.accountArea {
+    width: 100%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--borderRadius1);
+    border: 1px solid var(--borderBlk);
+    box-shadow: var(--shadow1);
+    padding: 15px;
+}
+
+.registerForm,
+.loginForm {
+    display: none;
+    animation: opacity 0.3s;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.registerForm>.inputsArea {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.loginForm>.inputsArea {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+}
+
+.oneInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.addressArea {
+    grid-area: 3 / 1 / 4 / 3;
+}
+
+.oneInput>label {
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding-left: 7px;
+    letter-spacing: 0.5px;
+}
+
+.oneInput>label>span {
+    color: red;
+}
+
+.oneInput>input {
+    width: 100%;
+    height: 40px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 0 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+}
+
+.oneInput>input:focus {
+    border: 1px solid var(--borderClr);
+}
+
+.addressOriginsSelectionArea{
+    grid-area: 5 / 1 / 6 / 3;
+}
+
+.addressOriginsSelection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.oneAddressOrigin{
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.035);
+    height: 40px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+}
+
+.oneAddressOrigin>h1{
+    font-family: var(--font1);
+    font-size: 14px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.oneAddressOriginSelection {
+    width: fit-content;
+    height: fit-content;
+}
+
+.oneAddressOriginSelection>input[type='radio'] {
+    display: none;
+}
+
+.oneAddressOriginSelection>label {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.oneAddressOriginSelection>label>.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--borderBlk);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    position: relative;
+}
+
+.oneAddressOriginSelection>label>.circle::before {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: var(--primClr2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.oneAddressOriginSelection>input[type='radio']:checked+label>.circle {
+    border-color: var(--borderClr);
+}
+
+.oneAddressOriginSelection>input[type='radio']:checked+label>.circle::before {
+    display: block;
+}
+
+.agreeStatement {
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 24px 0 15px 0;
+    width: 90%;
+}
+
+.agreeStatement>a {
+    color: #4285F4;
+}
+
+.rememberAndForget {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0 15px 0;
+    padding: 0 4px;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-family: var(--font1);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.checkbox input {
+    position: absolute;
+    width: 0;
+    left: 50px;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox .checkmark {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-color: rgba(0, 0, 0, 0.035);
+    border-radius: 4px;
+    border: 1px solid var(--borderBlk);
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked~.checkmark {
+    background-color: var(--primClr2);
+    border: 1px solid var(--primClr2);
+}
+
+.checkbox input[type="radio"]~.checkmark {
+    border-radius: 50%;
+}
+
+.checkbox .checkmark::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 50%;
+    top: 40%;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -moz-transform: translate(-50%, -50%) rotate(45deg);
+    -ms-transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked~.checkmark::after {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+.forgetPass>a {
+    font-family: var(--font1);
+    letter-spacing: 0.5px;
+    color: #4285F4;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.submitBtnArea {
+    width: 100%;
+    height: auto;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--borderRadiusInside1);
+    background-color: var(--primClr1);
+    color: white;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: var(--font1);
+    cursor: pointer;
+}
+
+.submitBtn>svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2.8;
+    display: block;
+    margin-bottom: -1px;
+    transition: .15s;
+}
+
+.submitBtn:hover svg {
+    transform: translateX(5px);
+}
+
+@media only screen and (max-width: 576px) {
+    .formScreen {
+        padding: 160px 8px;
+    }
+
+    .logoArea>a>img {
+        width: 120px;
+    }
+
+    .registerForm>.inputsArea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginForm>.inputsArea {
+        display: flex;
+        flex-direction: column;
+    }
+}

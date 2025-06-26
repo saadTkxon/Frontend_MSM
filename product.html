@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON LINKS -->
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="M$M Kosmetika" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- CSS FILES LINKS -->
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/fonts.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/root.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/loading.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/alert.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/product/product.css">
+    <link rel="stylesheet" href="/msm_kosmetika_fin/css/product/oneProduct.css">
+    <style>
+        /* Reviews Section Styles */
+/* .reviewsShownHere {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+} */
+
+
+.reviewsShownHere {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    /* Add these new properties */
+    margin-bottom: 40px; /* Space before footer */
+    width: 100%;
+    max-width: 1200px; /* Or your preferred max width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reviewsShownHere h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.ratingSummary {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.averageRating {
+    text-align: center;
+    min-width: 120px;
+}
+
+.averageRating h2 {
+    font-size: 36px;
+    margin: 0;
+    color: #333;
+}
+
+.averageRating .stars {
+    font-size: 24px;
+    color: #ffc107;
+    margin: 5px 0;
+}
+
+.averageRating p {
+    margin: 0;
+    color: #666;
+}
+
+.ratingBreakdown {
+    flex-grow: 1;
+}
+
+.ratingBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ratingBar span:first-child {
+    width: 60px;
+    color: #666;
+}
+
+.ratingBar span:last-child {
+    width: 40px;
+    text-align: right;
+    color: #666;
+}
+
+.barContainer {
+    flex-grow: 1;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: #ffc107;
+}
+
+.ratingTabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.ratingTabs button {
+    padding: 8px 16px;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.ratingTabs button:hover {
+    background: #ddd;
+}
+
+.ratingTabs button.active {
+    background: #333;
+    color: white;
+}
+
+.allReviewsContainer {
+    display: grid;
+    gap: 20px;
+}
+
+.oneProductReview {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.starsAndUsername {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.starsAndUsername .positive {
+    color: #ffc107;
+}
+
+.starsAndUsername .negative {
+    color: #ccc;
+}
+
+.username {
+    font-weight: bold;
+    margin: 0;
+}
+
+.reviewDate {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.reviewContext {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.reviewImages {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.reviewImages img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.reviewImages img:hover {
+    transform: scale(1.05);
+}
+
+.variations {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.empty {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+}
+    </style>
+
+
+    <!-- WEBSITE TITLE -->
+    <title>M$M - Product</title>
+</head>
+
+<body onload="hidePagePreloading()">
+
+    <div class="pagePreloading">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="loading" style="display: none;">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div class="productScreen">
+
+        <div class="productShowcaseArea">
+
+            <div class="searchArea">
+                <a href="" class="searchLogoArea"><img src="/msm_kosmetika_fin/assets/branding/logoOne.webp" alt=""></a>
+                <form action="" class="searchForm">
+                    <input type="text" placeholder="Search here">
+                    <button title="Search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor">
+                                <circle cx="11.5" cy="11.5" r="9.5" />
+                                <path stroke-linecap="round" d="M18.5 18.5L22 22" />
+                            </g>
+                        </svg></button>
+                </form>
+                <div class="accountPlusCartButtonArea" title="Cart">
+                    <button class="navAccountButton"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor">
+                                <circle cx="12" cy="6" r="4" />
+                                <ellipse cx="12" cy="17" rx="7" ry="4" />
+                            </g>
+                        </svg></button>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor">
+                                <path
+                                    d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                            </g>
+                        </svg>&nbsp;&nbsp;<span>2</span>&nbsp;items</button>
+                </div>
+            </div>
+
+            <div class="productDetsArea">
+
+                <div class="imagesArea">
+                    <h1>m$m</h1>
+                    <div class="imagePreview">
+                        <img src="/msm_kosmetika_fin/assets/misc/productCover.png" alt="" class="previewImage coverPreview">
+                    </div>
+                    <div class="fellowImages">
+                        <!-- Cover Image -->
+                        <button
+                            onclick="document.querySelector('.previewImage').src = '/assets/misc/productCover.png';document.querySelector('.previewImage').classList.add('coverPreview')"><img
+                                src="/msm_kosmetika_fin/assets/misc/coverPicture.webp" alt=""></button>
+                        <!-- Fellow Image -->
+                        <button
+                            onclick="document.querySelector('.previewImage').src = '/assets/misc/rewiewProduct1.jpg';document.querySelector('.previewImage').classList.remove('coverPreview')"><img
+                                src="/assets/misc/rewiewProduct1.jpg" alt=""></button>
+                        <button
+                            onclick="document.querySelector('.previewImage').src = '/assets/misc/rewiewProduct2.jpg';document.querySelector('.previewImage').classList.remove('coverPreview')"><img
+                                src="/assets/misc/rewiewProduct2.jpg" alt=""></button>
+                        <button
+                            onclick="document.querySelector('.previewImage').src = '/assets/misc/rewiewProduct1.jpg';document.querySelector('.previewImage').classList.remove('coverPreview')"><img
+                                src="/assets/misc/rewiewProduct1.jpg" alt=""></button>
+                        <button
+                            onclick="document.querySelector('.previewImage').src = '/assets/misc/rewiewProduct2.jpg';document.querySelector('.previewImage').classList.remove('coverPreview')"><img
+                                src="/assets/misc/rewiewProduct2.jpg" alt=""></button>
+                    </div>
+                </div>
+
+                <div class="productDets">
+                    <form action="">
+                        <img src="/assets/misc/onSale.webp" alt="" class="onSale">
+                        <h1 class="productTitle">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+                        <div class="shortHTMLDescription">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor accusantium sint
+                                rerum, soluta officiis atque voluptatibus expedita pariatur iste delectus, qui quis
+                                facilis sit voluptate reprehenderit, blanditiis ipsam ad.</p>
+                        </div>
+                        <!-- <div class="pricing">
+                            <h1 class="actualPrice">Rs.&nbsp;<span>1280.00</h1>
+                            <div class="discountPricing">
+                                <h2>Rs.&nbsp;<span>1880</h2>
+                                <p>-&nbsp;<span>35</span>%</p>
+                            </div>
+                        </div> -->
+
+
+                        <div class="pricing">
+                            <h1 class="actualPrice"><span></span></h1>
+                            <div class="discountPricing" style="display: none;">
+                                <h2><span class="discountPrice"></span></h2>
+                                <p>-&nbsp;<span></span>%</p>
+                            </div>
+                        </div>
+                        <hr class="separationLine">
+
+
+
+                        <div class="variationsArea" >
+                            <div class="oneVariationArea">
+                                <h1>color</h1>
+                                <div class="variationsHere">
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="color" id="black" checked>
+                                        <label for="black">black</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="color" id="white">
+                                        <label for="white">white</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="color" id="red">
+                                        <label for="red">red</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="color" id="purple">
+                                        <label for="purple">purple</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="oneVariationArea">
+                                <h1>size</h1>
+                                <div class="variationsHere">
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="size" id="250ml" checked>
+                                        <label for="250ml">250 ml</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="size" id="350ml">
+                                        <label for="350ml">350 ml</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="size" id="500ml">
+                                        <label for="500ml">500 ml</label>
+                                    </div>
+
+                                    <div class="oneRadioElement">
+                                        <input type="radio" name="size" id="1000ml">
+                                        <label for="1000ml">1000 ml</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="quantityArea">
+                            <h1>quantity</h1>
+                            <div class="increasingQuantity">
+                                <button type="button" class="quantityDecreaseButton"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path fill="currentColor" fill-rule="evenodd"
+                                            d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-6.25 0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1 0-1.5h6a.75.75 0 0 1 .75.75"
+                                            clip-rule="evenodd" />
+                                    </svg></button>
+                                <input type="number" value="1" class="quantityCount" >
+                                <button type="button" class="quantityIncreaseButton">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path fill="currentColor" fill-rule="evenodd"
+                                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m.75-13a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z"
+                                            clip-rule="evenodd" />
+                                    </svg></button>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="accButtons">
+                            <button class="outOfStockButton" disabled style="display: none;">Out of stock</button>
+                            <div class="buyingAccButtons">
+                                <button class="addToCartButton">Add to cart</button>
+                                <button class="buyNowButton">Buy now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="reviewsPlusLongDescriptionPlusRelatedProducts">
+
+            <h1 style="font-family: var(--font1); font-size: 29px; color: var(--primClr1); letter-spacing: 0.5px; margin-bottom: 24px;">More about this</h1>
+
+            <div class="longDescriptionPlusReviews">
+                <div class="longDescription">
+                  
+
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, suscipit sed. Accusantium
+                        unde id at nulla reiciendis aliquid placeat facilis dolor, est repudiandae, omnis excepturi
+                        impedit autem eveniet modi sint tenetur ad. Officiis iure, quia mollitia corrupti et molestias
+                        eum neque id dicta ea cumque, aspernatur dolore. Unde, voluptatum soluta.</p>
+                    <ol>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem ipsum dolor sit.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem ipsum dolor sit.</li>
+                    </ol>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae minima temporibus, exercitationem
+                        ratione sequi commodi eligendi aut, dolorum expedita debitis reiciendis, voluptate quasi dolorem
+                        obcaecati!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ab consequatur? Provident,
+                        ipsa quo quibusdam cumque inventore reprehenderit aut! Repudiandae aliquam animi atque, quidem
+                        impedit blanditiis suscipit?</p>
+                </div>
+
+
+
+
+
+            <div class="hel" id="hel11">
+                <form class="reviewsArea">
+                    <div class="ratingPlusButtons">
+                        <div class="ratingArea">
+                            <h1><span>4.7</span>/5</h1>
+                            <p><span>37</span>&nbsp;Ratings</p>
+                        </div>
+                        <div class="ratingButtons">
+                            <button type="button" class="stars" onclick="openFiveStartReviews()"><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span>&nbsp;&nbsp;<span class="reviewsCount">26</span>
+                            </button>
+                            <button type="button" class="stars" onclick="openFourStartReviews()"><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span
+                                    class="negative">&#9733;</span>&nbsp;&nbsp;<span class="reviewsCount">5</span>
+                            </button>
+                            <button type="button" class="stars" onclick="openThreeStartReviews()"><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                    class="negative">&#9733;</span><span
+                                    class="negative">&#9733;</span>&nbsp;&nbsp;<span class="reviewsCount">1</span>
+                            </button>
+                            <button type="button" class="stars" onclick="openTwoStartReviews()"><span class="positive">&#9733;</span><span
+                                    class="positive">&#9733;</span><span class="negative">&#9733;</span><span
+                                    class="negative">&#9733;</span><span
+                                    class="negative">&#9733;</span>&nbsp;&nbsp;<span class="reviewsCount">2</span>
+                            </button>
+                            <button type="button" class="stars" onclick="openOneStartReviews()"><span class="positive">&#9733;</span><span
+                                    class="negative">&#9733;</span><span class="negative">&#9733;</span><span
+                                    class="negative">&#9733;</span><span
+                                    class="negative">&#9733;</span>&nbsp;&nbsp;<span class="reviewsCount">3</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="reviewsShownHere">
+                        <div class="reviewsShownHere">
+                        <p class="empty" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" />
+                                    <path stroke-linecap="round"
+                                        d="M2 13h3.16c.905 0 1.358 0 1.756.183s.692.527 1.281 1.214l.606.706c.589.687.883 1.031 1.281 1.214s.85.183 1.756.183h.32c.905 0 1.358 0 1.756-.183s.692-.527 1.281-1.214l.606-.706c.589-.687.883-1.031 1.281-1.214S17.934 13 18.84 13H22" />
+                                </g>
+                            </svg><span>Item is not reviewed yet.</span>
+                        </p>
+
+                        <div class="latestReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="fiveStarReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="fourStarReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="threeStarReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="positive">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="twoStarReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="positive">&#9733;</span><span class="negative">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="oneStarReviews">
+
+                            <div class="oneProductReview">
+                                <div class="starsAndUsername"><span class="positive">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span><span
+                                        class="negative">&#9733;</span><span class="negative">&#9733;</span>&nbsp;<p
+                                        class="username">john doe</p>
+                                </div>
+                                <p class="reviewContext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                                    similique! Dolorum qui eos saepe praesentium!</p>
+                                <div class="reviewImages">
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct1.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct1.jpg" alt=""></a>
+                                    <a href="/assets/misc/rewiewProduct2.jpg" target="_blank"><img
+                                            src="/assets/misc/rewiewProduct2.jpg" alt=""></a>
+                                </div>
+                                <div class="variations">
+                                    <p><span>black</span>&nbsp;-&nbsp;<span>second variation</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="paginationArea">
+                            <div class="pagination">
+                                <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" d="m15 5l-6 7l6 7" />
+                                    </svg></button>
+                                <p class="currentPage">1</p>
+                                <p>of</p>
+                                <p>10</p>
+                                <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" d="m9 5l6 7l-6 7" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            
+            </div>  
+            
+            
+            </div>
+
+        
+            
+            <div class="relatedProducts"  >
+                <h1>Related products</h1>
+                <form class="relatedProductsShowsHere">
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem1.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <h2 class="saleTag"><span>45%</span>&nbsp;Off</h2>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem2.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <h2 class="saleTag"><span>45%</span>&nbsp;Off</h2>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem3.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem4.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <h2 class="saleTag"><span>45%</span>&nbsp;Off</h2>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem1.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem2.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <h2 class="saleTag"><span>45%</span>&nbsp;Off</h2>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem1.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <h2 class="saleTag"><span>45%</span>&nbsp;Off</h2>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                    <a href="#" class="oneProduct">
+                        <img src="/assets/misc/productItem2.png" alt="">
+                        <div class="produceDets">
+                            <p>M$M rice mask</p>
+                            <h2>Rs.&nbsp;<span>1280</span>.00</h2>
+                        </div>
+                        <button class="addToCart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <path
+                                        d="M3.742 20.555C4.942 22 7.174 22 11.64 22h.72c4.466 0 6.699 0 7.899-1.445m-16.517 0c-1.2-1.446-.788-3.64.035-8.03c.585-3.12.877-4.681 1.988-5.603M3.742 20.555Zm16.517 0c1.2-1.446.788-3.64-.035-8.03c-.585-3.12-.878-4.681-1.989-5.603m2.024 13.633ZM18.235 6.922C17.125 6 15.536 6 12.361 6h-.722c-3.175 0-4.763 0-5.874.922m12.47 0Zm-12.47 0Z" />
+                                    <path stroke-linecap="round" d="M9 6V5a3 3 0 1 1 6 0v1" />
+                                </g>
+                            </svg></button>
+                    </a>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="cartGoAction">
+            <div class="cartGoArea">
+                <button class="cartGo">cart&nbsp;-&nbsp;<span>2</span>&nbsp;items</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copyrightArea"    
+    style="position: relative; bottom: 0; left: 0; right: 0; background-color: #ffffff; padding: 10px 20px;  "
+
+    >
+        <p>Copyright © 2025 MSM Kosmetika</p>
+        <div class="paymentOptions">
+            <img src="./assets/misc/alfalah.webp" alt="">
+            <img src="./assets/misc/easypaisa.webp" alt="">
+        </div>
+        <div class="fSocialLinks">
+            <a href="https://www.facebook.com/share/1HFn22PGMf/"><svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z" />
+                </svg></a>
+            <a href="https://www.instagram.com/bsbtechnologiesksa?igsh=MWF3N3B0aXhyYnFrZQ=="><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="none" fill-rule="evenodd">
+                        <path
+                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                        <path fill="currentColor"
+                            d="M16 3a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3m-4 3a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4m4.5-3.5a1 1 0 1 1 0 2a1 1 0 0 1 0-2" />
+                    </g>
+                </svg></a>
+            <a
+                href="https://www.linkedin.com/in/b-s-b-technologies-452a43350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z" />
+                </svg></a>
+            <a href="https://x.com/bsbtechnologies?t=Re5hG56ouPa1GuYl_pzWJQ&s=09"><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z" />
+                </svg></a>
+            <a href="https://www.snapchat.com/add/bbtechnologies?share_id=MfPPDvGe2n4&locale=en-US"><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="none" fill-rule="evenodd">
+                        <path
+                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                        <path fill="currentColor"
+                            d="M12 2a6 6 0 0 0-6 6v1.875L5.1 9.2a1 1 0 1 0-1.2 1.6l1.866 1.4c-.444 1.168-1.527 2.39-3.28 3.443a1.01 1.01 0 0 0-.318 1.412C3.286 18.732 5.06 20 7 20c.677 0 1.203.43 1.724.809C9.456 21.34 10.423 22 12 22s2.543-.659 3.275-1.191C15.797 20.429 16.323 20 17 20c1.94 0 3.714-1.268 4.832-2.945a1.01 1.01 0 0 0-.318-1.412c-1.753-1.053-2.836-2.275-3.28-3.443l1.866-1.4a1 1 0 0 0-1.2-1.6l-.9.675V8a6 6 0 0 0-6-6M8 8a4 4 0 0 1 8 0v3c0 2.198 1.42 4.209 3.538 5.735C18.752 17.556 17.825 18 17 18c-1.378 0-2.264.728-2.9 1.191c-.644.468-1.177.809-2.1.809s-1.457-.341-2.1-.809C9.265 18.728 8.379 18 7 18c-.826 0-1.752-.444-2.538-1.265C6.58 15.209 8 13.199 8 11z" />
+                    </g>
+                </svg></a>
+            <a href="https://wa.me/966596753837"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718l-.697 2.359l2.32-.648l.379.243A8 8 0 1 0 12 4M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382l1.426-4.829l-.006-.007l-.033-.055A9.96 9.96 0 0 1 2 12"
+                            clip-rule="evenodd" />
+                        <path
+                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1 1 0 0 0-.34-.075c-.196 0-.362.098-.49.291c-.146.217-.587.732-.723.886c-.018.02-.042.045-.057.045c-.013 0-.239-.093-.307-.123c-1.564-.68-2.751-2.313-2.914-2.589c-.023-.04-.024-.057-.024-.057c.005-.021.058-.074.085-.101c.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711c-.158-.377-.366-.552-.655-.552c-.027 0 0 0-.112.005c-.137.005-.883.104-1.213.311c-.35.22-.94.924-.94 2.16c0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537c1.412.564 2.081.63 2.461.63c.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276c.192-.534.243-1.117.115-1.329c-.088-.144-.239-.216-.43-.308" />
+                    </g>
+                </svg></a>
+        </div>
+    </div>
+
+    <div class="alert" style="display: none;">
+        <div class="alertBadge"">
+            <button onclick=" document.querySelector('.alert').style.display='none'"><svg xmlns="
+            http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5" />
+            </g></svg></button>
+            <p>Alert data will be shown here. Alert data will be shown here.</p>
+        </div>
+    </div>
+
+    <!-- JS FILES LINKS -->
+    <script src="/msm_kosmetika_fin/js/global/pagePreloading.js"></script>
+    <script src="/msm_kosmetika_fin/js/product/product.js"></script>
+    <script  src="/msm_kosmetika_fin/js/apiscalling/openprodcusts12.js"  type="text/javascript" ></script>
+    <script  src="/msm_kosmetika_fin/js/apiscalling/openprodcustreviews.js"  type="text/javascript" ></script>
+
+
+
+</body>
+
+</html>

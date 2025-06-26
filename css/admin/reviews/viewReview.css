@@ -1,0 +1,337 @@
+.viewReviewArea {
+    width: 100%;
+    height: 100svh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    padding: 30px 8px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.viewReviewAreaContent {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    max-height: 100%;
+    margin: 100px 0;
+    background-color: white;
+    border-radius: var(--borderRadius1);
+    box-shadow: var(--shadow1);
+    border: 1px solid var(--borderBlk);
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.sideTitlePlusCloseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.sideTitlePlusCloseButton>h1 {
+    font-family: var(--font1);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.sideTitlePlusCloseButton>button {
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primClr1);
+}
+
+.sideTitlePlusCloseButton>button>svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.reviewProductHere {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 24px;
+}
+
+.givenRatingStars {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 9px;
+}
+
+.givenRatingStars>h1 {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.givenRating:not(:checked)>input {
+    position: absolute;
+    appearance: none;
+    pointer-events: none;
+}
+
+.givenRating:not(:checked)>label {
+    float: right;
+    cursor: pointer;
+    color: gray;
+    transition: 0.25s ease-out;
+    font-size: 27px;
+    text-shadow: 0 0 2px black;
+    margin-left: 2px;
+    pointer-events: none;
+}
+
+.givenRating:not(:checked)>label:before {
+    content: '★';
+}
+
+.givenRating>input:checked+label:hover,
+.givenRating>input:checked+label:hover~label,
+.givenRating>input:checked~label:hover,
+.givenRating>input:checked~label:hover~label,
+.givenRating>label:hover~input:checked~label {
+    color: rgb(236, 201, 0);
+}
+
+.givenRating:not(:checked)>label:hover,
+.givenRating:not(:checked)>label:hover~label {
+    color: rgba(255, 217, 0, 0.9);
+}
+
+.givenRating>input:checked~label {
+    color: gold;
+}
+
+.givenReviewArea {
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 11px;
+    background-color: rgba(0, 0, 0, 0.035);
+    margin-bottom: 15px;
+}
+
+.givenReviewArea>h1 {
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.givenReviewArea>p {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+    letter-spacing: 0.5px;
+    line-height: 1.35;
+}
+
+.givenReviewArea>h2{
+    font-family: var(--font1);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.givenReviewArea>h2>small{
+    font-size: 11px;
+    color: gray;
+}
+
+.reviewImages{
+    margin-bottom: 24px;
+}
+
+.previewImages{
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.oneImageBox{
+    width: 80px;
+    height: 80px;
+    border-radius: var(--borderRadiusInside1);
+    position: relative;
+}
+
+.oneImageBox>a{
+    width: fit-content;
+    height: fit-content;
+}
+
+.oneImageBox>a>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+}
+
+.oneImageBox>button{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oneImageBox>button>svg{
+    width: 21px;
+    height: 21px;
+    stroke-width: 2;
+    color: white;
+    display: block;
+}
+
+.editReviewButtonArea{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editReviewButtonArea>button{
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #4285F4;
+}
+
+.editReviewButtonArea>button>svg{
+    width: 15px;
+    height: 15px;
+    stroke-width: 2;
+    display: block;
+}
+
+.orderActionArea{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 50px;
+}
+
+.orderActionArea>select{
+    width: 100%;
+    height: 37px;
+    border-radius: var(--borderRadiusInside1);
+    border: 1px solid var(--borderBlk);
+    padding: 0 10px;
+    font-family: var(--font1);
+    /* background-color: rgba(0, 0, 0, 0.035); */
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.orderActionArea>button {
+    width: calc(37px - 2px);
+    min-width: calc(37px - 2px);
+    height: calc(37px - 2px);
+    border: none;
+    background-color: var(--primClr2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--borderRadiusInside1);
+    cursor: pointer;
+}
+
+.orderActionArea>button>svg {
+    width: 13px;
+    height: 13px;
+    display: block;
+    stroke-width: 2.5;
+    color: white;
+}
+
+.orderDets{
+    margin-bottom: 15px;
+}
+
+.orderDets>h1{
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.orderDets>h2{
+    font-family: var(--font1);
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: gray;
+}
+
+.reviewStatus{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.reviewStatus>h1, .orderTracking>h1{
+    font-family: var(--font1);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.reviewStatus>h2 {
+    font-family: var(--font1);
+    background-color: var(--primClr2);
+    color: white;
+    border-radius: var(--borderRadiusInside1);
+    padding: 2px 8px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
