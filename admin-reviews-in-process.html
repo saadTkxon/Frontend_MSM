@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="M$M Kosmetika" />
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <!-- CSS FILES LINKS -->
-    <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
+    <!-- <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/global.css">
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/fonts.css">
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/root.css">
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/global/loading.css">
@@ -23,7 +23,25 @@
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/admin/reviews/orders.css">
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/admin/reviews/oneItem.css">
     <link rel="stylesheet" href="/msm_kosmetika_fin/css/admin/reviews/viewReview.css">
+    <script src="/msm_kosmetika_fin/js/apiscalling/auth.js"></script> -->
+
+
+    <!-- taimoor correction path -->
+
+    <link rel="stylesheet" href="/css/global/global.css">
+    <link rel="stylesheet" href="/css/global/fonts.css">
+    <link rel="stylesheet" href="/css/global/root.css">
+    <link rel="stylesheet" href="/css/global/loading.css">
+    <link rel="stylesheet" href="/css/global/alert.css">
+    <link rel="stylesheet" href="/css/global/confirmation.css">
+    <link rel="stylesheet" href="/css/admin/panel.css">
+    <link rel="stylesheet" href="/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/reviews/orders.css">
+    <link rel="stylesheet" href="/css/admin/reviews/oneItem.css">
+    <link rel="stylesheet" href="/css/admin/reviews/viewReview.css">
+
     <script src="/msm_kosmetika_fin/js/apiscalling/auth.js"></script>
+
     <!-- WEBSITE TITLE -->
     <title>M$M Admin - Reviews (In-process)</title>
 </head>
@@ -65,43 +83,43 @@
 
                 
                 <div class="sidebarButtons">
-                    <a href="/msm_kosmetika_fin/admin-dashboard.html" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-dashboard.html" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor">
                                 <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
                                 <path d="m5.766 10l-.787.315C2.993 11.109 2 11.507 2 12s.993.89 2.979 1.685l2.808 1.124C9.773 15.603 10.767 16 12 16s2.227-.397 4.213-1.191l2.808-1.124C21.007 12.891 22 12.493 22 12s-.993-.89-2.979-1.685L18.234 10" />
                                 <path d="m5.766 14l-.787.315C2.993 15.109 2 15.507 2 16s.993.89 2.979 1.685l2.808 1.124C9.773 19.603 10.767 20 12 20s2.227-.397 4.213-1.192l2.808-1.123C21.007 16.891 22 16.494 22 16c0-.493-.993-.89-2.979-1.685L18.234 14" />
                             </g>
                         </svg>&nbsp;&nbsp;<span>Dashboard</span></a>
-                    <a href="/msm_kosmetika_fin/admin-orders-all.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-orders-all.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" d="m15.578 3.382l2 1.05c2.151 1.129 3.227 1.693 3.825 2.708C22 8.154 22 9.417 22 11.942v.117c0 2.524 0 3.787-.597 4.801c-.598 1.015-1.674 1.58-3.825 2.709l-2 1.049C13.822 21.539 12.944 22 12 22s-1.822-.46-3.578-1.382l-2-1.05c-2.151-1.129-3.227-1.693-3.825-2.708C2 15.846 2 14.583 2 12.06v-.117c0-2.525 0-3.788.597-4.802c.598-1.015 1.674-1.58 3.825-2.708l2-1.05C10.178 2.461 11.056 2 12 2s1.822.46 3.578 1.382ZM21 7.5l-4 2M12 12L3 7.5m9 4.5v9.5m0-9.5l4.5-2.25l.5-.25m0 0V13m0-3.5l-9.5-5" />
                         </svg>&nbsp;&nbsp;<span>Orders</span></a>
-                    <a href="/msm_kosmetika_fin/admin-products.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-products.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor">
                                 <path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" />
                                 <path stroke-linecap="round" d="M2 13h3.16c.905 0 1.358 0 1.756.183s.692.527 1.281 1.214l.606.706c.589.687.883 1.031 1.281 1.214s.85.183 1.756.183h.32c.905 0 1.358 0 1.756-.183s.692-.527 1.281-1.214l.606-.706c.589-.687.883-1.031 1.281-1.214S17.934 13 18.84 13H22M8 7h8m-6 3.5h4" />
                             </g>
                         </svg>&nbsp;&nbsp;<span>Products</span></a>
-                    <a href="/msm_kosmetika_fin/admin-reviews-all.html"aria-selected="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-reviews-all.html"aria-selected="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor">
                                 <path d="M10.861 3.363C11.368 2.454 11.621 2 12 2s.632.454 1.139 1.363l.13.235c.145.259.217.388.329.473s.252.117.532.18l.254.058c.984.222 1.476.334 1.593.71s-.218.769-.889 1.553l-.174.203c-.19.223-.285.334-.328.472s-.029.287 0 .584l.026.27c.102 1.047.152 1.57-.154 1.803s-.767.02-1.688-.404l-.239-.11c-.261-.12-.392-.18-.531-.18s-.27.06-.531.18l-.239.11c-.92.425-1.382.637-1.688.404s-.256-.756-.154-1.802l.026-.271c.029-.297.043-.446 0-.584s-.138-.25-.328-.472l-.174-.203c-.67-.784-1.006-1.177-.889-1.553s.609-.488 1.593-.71l.254-.058c.28-.063.42-.095.532-.18s.184-.214.328-.473zm8.569 4.319c.254-.455.38-.682.57-.682s.316.227.57.682l.065.117c.072.13.108.194.164.237s.126.058.266.09l.127.028c.492.112.738.167.796.356s-.109.384-.444.776l-.087.101c-.095.112-.143.168-.164.237s-.014.143 0 .292l.013.135c.05.523.076.785-.077.901s-.383.01-.844-.202l-.12-.055c-.13-.06-.196-.09-.265-.09c-.07 0-.135.03-.266.09l-.119.055c-.46.212-.69.318-.844.202c-.153-.116-.128-.378-.077-.901l.013-.135c.014-.15.022-.224 0-.292c-.021-.07-.069-.125-.164-.237l-.087-.101c-.335-.392-.503-.588-.444-.776s.304-.244.796-.356l.127-.028c.14-.032.21-.048.266-.09c.056-.043.092-.108.164-.237zm-16 0C3.685 7.227 3.81 7 4 7s.316.227.57.682l.065.117c.072.13.108.194.164.237s.126.058.266.09l.127.028c.492.112.738.167.797.356c.058.188-.11.384-.445.776l-.087.101c-.095.112-.143.168-.164.237s-.014.143 0 .292l.013.135c.05.523.076.785-.077.901s-.384.01-.844-.202l-.12-.055c-.13-.06-.196-.09-.265-.09c-.07 0-.135.03-.266.09l-.119.055c-.46.212-.69.318-.844.202c-.153-.116-.128-.378-.077-.901l.013-.135c.014-.15.022-.224 0-.292c-.021-.07-.069-.125-.164-.237l-.087-.101c-.335-.392-.503-.588-.445-.776c.059-.189.305-.244.797-.356l.127-.028c.14-.032.21-.048.266-.09c.056-.043.092-.108.164-.237z" />
                                 <path stroke-linecap="round" d="M5 20.388h2.26c1.01 0 2.033.106 3.016.308a14.9 14.9 0 0 0 5.33.118c.868-.14 1.72-.355 2.492-.727c.696-.337 1.549-.81 2.122-1.341c.572-.53 1.168-1.397 1.59-2.075c.364-.582.188-1.295-.386-1.728a1.89 1.89 0 0 0-2.22 0l-1.807 1.365c-.7.53-1.465 1.017-2.376 1.162q-.165.026-.345.047m0 0l-.11.012m.11-.012a1 1 0 0 0 .427-.24a1.49 1.49 0 0 0 .126-2.134a1.9 1.9 0 0 0-.45-.367c-2.797-1.669-7.15-.398-9.779 1.467m9.676 1.274a.5.5 0 0 1-.11.012m0 0a9.3 9.3 0 0 1-1.814.004" />
                                 <rect width="3" height="8" x="2" y="14" rx="1.5" />
                             </g>
                         </svg>&nbsp;&nbsp;<span>Reviews</span></a>
-                    <a href="/msm_kosmetika_fin/admin-categories-and-variations.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-categories-and-variations.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor">
                                 <path stroke-linecap="round" d="M22 10.5V12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2h1.5" />
                                 <circle cx="19" cy="5" r="3" />
                                 <path stroke-linecap="round" d="M7 14h9m-9 3.5h6" />
                             </g>
                         </svg>&nbsp;&nbsp;<span>Categories & Variations</span></a>
-                    <a href="/msm_kosmetika_fin/admin-refund-all.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-refund-all.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none">
                                 <path fill="currentColor" d="M7.378 11.63h-.75zm0 .926l-.562.497a.75.75 0 0 0 1.08.044zm2.141-1.015a.75.75 0 0 0-1.038-1.082zm-2.958-1.038a.75.75 0 1 0-1.122.994zm8.37-1.494a.75.75 0 1 0 1.102-1.018zM12.045 6.25c-2.986 0-5.416 2.403-5.416 5.38h1.5c0-2.137 1.747-3.88 3.916-3.88zm-5.416 5.38v.926h1.5v-.926zm1.269 1.467l1.622-1.556l-1.038-1.082l-1.622 1.555zm.042-1.039l-1.378-1.555l-1.122.994l1.377 1.556zm8.094-4.067a5.42 5.42 0 0 0-3.99-1.741v1.5a3.92 3.92 0 0 1 2.889 1.26zm.585 3.453l.56-.498a.75.75 0 0 0-1.08-.043zm-2.139 1.014a.75.75 0 1 0 1.04 1.082zm2.96 1.04a.75.75 0 0 0 1.12-.997zm-8.393 1.507a.75.75 0 0 0-1.094 1.026zm2.888 2.745c2.993 0 5.434-2.4 5.434-5.38h-1.5c0 2.135-1.753 3.88-3.934 3.88zm5.434-5.38v-.926h-1.5v.926zm-1.27-1.467l-1.619 1.555l1.04 1.082l1.618-1.555zm-.04 1.04l1.38 1.554l1.122-.996l-1.381-1.555zM7.952 16.03a5.45 5.45 0 0 0 3.982 1.719v-1.5c-1.143 0-2.17-.48-2.888-1.245z" />
                                 <path stroke="currentColor" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" />
                             </g>
                         </svg>&nbsp;&nbsp;<span>Refund</span></a>
-                    <a href="/msm_kosmetika_fin/admin-order-tracking.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a href="/admin-order-tracking.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g fill="none">
                                 <circle cx="12" cy="12" r="10" stroke="currentColor" />
                                 <path fill="currentColor" d="m14.495 7.975l.53-.53zm1.54 1.543l-.53.53zm-5.166 5.696l-.53.53zm-2.058-2.06l.53-.53zm6.473-.157l-.264-.702zm-.96.36l.265.702zm-3.658-3.666l-.704-.258zm.347-.948l.704.258zm-1.59 2.094l.199.723zm.728-.27l-.438-.608zm.187-.172l.57.487zm3.288 3.295l.49.567zm-.436.91l-.723-.198zm.269-.727l-.61-.437zm-5.6-1.995l-.75.004zm.106-.402l-.65-.374zm4.188 4.696v-.75zm.394-.105l-.372-.651zm-.198-9.549l.161.732zm-5.38 9.452a.75.75 0 0 0 1.062 1.06zm3.388-1.269a.75.75 0 1 0-1.061-1.06zm3.607-6.196l1.541 1.543l1.061-1.06l-1.54-1.543zm-2.564 6.18l-2.06-2.062l-1.06 1.06l2.058 2.06zm3.62-2.39l-.959.36l.528 1.404l.958-.36zM11.37 9.95l.348-.95l-1.409-.516l-.347.948zm-1.748 1.61c.328-.09.678-.175.967-.383L9.713 9.96c-.02.014-.052.034-.49.155zm.34-2.126c-.156.426-.18.458-.195.476l1.142.973c.23-.271.344-.613.461-.933zm.627 1.743q.177-.128.32-.294L9.767 9.91a.3.3 0 0 1-.054.05zm3.472 1.48c-.318.119-.658.235-.927.467l.982 1.134c.018-.015.05-.038.473-.198zm-.148 2.143c.12-.436.141-.47.155-.489l-1.219-.874c-.207.289-.292.638-.382.966zm-.779-1.676a1.8 1.8 0 0 0-.285.313l1.219.874a.3.3 0 0 1 .049-.053zm-3.793-.499c-.33-.33-.53-.533-.656-.69c-.127-.16-.076-.154-.076-.061l-1.5.01c.003.419.212.746.403.985c.19.24.465.512.768.816zm-.118-2.51c-.413.114-.786.215-1.071.33c-.284.113-.627.294-.837.658l1.3.748c-.047.081-.093.062.096-.014c.187-.075.461-.152.91-.276zm-.614 1.759q0-.012.006-.023l-1.3-.748a1.55 1.55 0 0 0-.206.78zm1.73 3.872c.305.305.579.581.82.774c.24.191.57.402.992.403l.003-1.5c.094 0 .1.05-.06-.077c-.159-.126-.362-.328-.694-.66zm2.128-1.343c-.124.452-.202.729-.277.918c-.077.19-.097.143-.015.096l.743 1.303c.367-.21.55-.555.664-.84c.115-.287.217-.663.331-1.08zm-.316 2.52c.27 0 .534-.07.767-.203l-.743-1.303a.04.04 0 0 1-.021.006zm3.354-6.874c.54.54.884.888 1.09 1.165c.097.131.135.21.149.252l.006.026v.003l1.466.317c.128-.596-.121-1.093-.416-1.491c-.287-.388-.728-.826-1.234-1.332zm.042 3.651c.67-.251 1.252-.468 1.674-.702c.433-.24.866-.59.995-1.186l-1.466-.317l-.001.003l-.017.02a1 1 0 0 1-.24.168c-.3.168-.757.341-1.472.61zm-.522-6.254c-.509-.51-.95-.954-1.34-1.243c-.399-.297-.899-.548-1.498-.416l.323 1.464h.008l.02.006a1 1 0 0 1 .254.15c.278.207.628.554 1.172 1.1zm-3.308 1.556c.266-.723.437-1.185.603-1.49a1 1 0 0 1 .183-.257l.005-.003h.002l-.323-1.465c-.599.132-.947.57-1.185 1.008c-.231.426-.445 1.014-.693 1.691zm-3.686 8.03l2.326-2.33l-1.061-1.06l-2.327 2.329z" />
@@ -148,10 +166,10 @@
                             </div>
 
                             <div class="orderCategoriesButtons">
-                                <a href="/msm_kosmetika_fin/admin-reviews-all.html">All</a>
-                                <a href="/msm_kosmetika_fin/admin-reviews-in-process.html"  aria-selected="true">In-process</a>
-                                <a href="/msm_kosmetika_fin/admin-reviews-active.html">Active</a>
-                                <a href="/msm_kosmetika_fin/admin-reviews-rejected.html">Rejected</a>
+                                <a href="/admin-reviews-all.html">All</a>
+                                <a href="/admin-reviews-in-process.html"  aria-selected="true">In-process</a>
+                                <a href="/admin-reviews-active.html">Active</a>
+                                <a href="/admin-reviews-rejected.html">Rejected</a>
                             </div>
                             <div class="statsFilters">
 
@@ -362,9 +380,11 @@
     </div>
 
     <!-- JS FILES LINKS -->
-    <script src="/msm_kosmetika_fin/js/global/pagePreloading.js"></script>
-    <script src="/msm_kosmetika_fin/js/admin/reviewDets.js"></script>
-    <script src="/msm_kosmetika_fin/js/global/confirmation.js"></script>
+    <script src="/js/global/pagePreloading.js"></script>
+    <script src="/js/admin/reviewDets.js"></script>
+    <script src="/js/global/confirmation.js"></script>
+
+    
     <script src="/msm_kosmetika_fin/js/apiscalling/logout.js"></script>
     
     <script src="/msm_kosmetika_fin/js/apiscalling/rewvies_data_inprocess.js"></script>
