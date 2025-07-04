@@ -80,7 +80,7 @@ document.getElementById("newPasswordForm").addEventListener("submit", async func
                 localStorage.removeItem("reset_user_id");
                 localStorage.removeItem("reset_email");
                 // Redirect to login page
-                window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account.html";
+                window.location.href = "http://145.223.33.250:5500/msm_kosmetika_fin/account.html";
             });
         } else {
             debugLog("Password update failed", data.message);

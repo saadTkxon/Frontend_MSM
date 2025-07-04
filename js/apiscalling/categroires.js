@@ -3,7 +3,7 @@ console.log('categories script loaded - Enhanced Version with Confirmation');
 // Categories functions
 async function fetchCategories() {
   const authToken = localStorage.getItem("auth_token");
-  const response = await fetch("http://localhost:5000/products/show-categories", {
+  const response = await fetch("http://145.223.33.250:5000/products/show-categories", {
       method: "GET",
       headers: {
           "Authorization": `Bearer ${authToken}`
@@ -102,7 +102,7 @@ function closeAddCategoryForm() {
 async function addCategory(categoryName) {
   const authToken = localStorage.getItem("auth_token");
 
-  const response = await fetch("http://localhost:5000/products/add-category", {
+  const response = await fetch("http://145.223.33.250:5000/products/add-category", {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -158,7 +158,7 @@ async function deleteCategory(categoryName) {
   const authToken = localStorage.getItem("auth_token");
 
   try {
-    const response = await fetch("http://localhost:5000/products/delete-category", {
+    const response = await fetch("http://145.223.33.250:5000/products/delete-category", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

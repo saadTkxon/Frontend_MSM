@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Send the data to the backend API
       try {
         console.log("Sending data to the backend...");
-        const response = await fetch("http://localhost:5000/usertrs/signup_user", {
+        const response = await fetch("http://145.223.33.250:5000/usertrs/signup_user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
           showAlert("User registered successfully!");
           setTimeout(() => {
-            window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account-verification.html";
+            window.location.href = "/account-verification.html";
           }, 2000);
         } else {
           showAlert(result.message || "An error occurred during registration.");
@@ -127,7 +127,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
     try {
         console.log("Sending POST request to login API...");
 
-        const response = await fetch('http://localhost:5000/usertrs/login', {
+        const response = await fetch('http://145.223.33.250:5000/usertrs/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -158,15 +158,15 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
             // Check if cart exists in localStorage
             const cart = localStorage.getItem('cart');
             if (cart) {
-                window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/cart.html";  // Redirect to cart page if cart exists
+                window.location.href = "/cart.html";  // Redirect to cart page if cart exists
                 console.log("Redirecting to cart page...");
             } else {
                 // Check user type and redirect accordingly if no cart exists
                 if (data.response.user_type === "admin") {
-                    window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/admin-dashboard.html";  // Redirect for admin
+                    window.location.href = "/admin-dashboard.html";  // Redirect for admin
                     console.log("Redirecting to admin dashboard...");
                 } else {
-                    window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/index.html";  // Redirect for regular user
+                    window.location.href = "/index.html";  // Redirect for regular user
                     console.log("Redirecting to user dashboard...");
                 }
             }

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     async function checkAuthToken() {
         const authToken = localStorage.getItem("auth_token");
         if (!authToken) {
-            window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account.html";
+            window.location.href = "/account.html";
             return;
         }
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 if ((isAdminPage && userType !== "admin") || (!isAdminPage && userType === "admin")) {
                     console.warn("Unauthorized access. Redirecting...");
-                    window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account.html";
+                    window.location.href = "/account.html";
                     return;
                 }
 
@@ -30,37 +30,37 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const isAndroid = /android/i.test(userAgent);
                 const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
                 const allowedUserPages = [
-                    "/msm_kosmetika_fin/indexlite.html",
-                    "/msm_kosmetika_fin/index.html",
-                    "/msm_kosmetika_fin/shop.html",
-                    "/msm_kosmetika_fin/profile.html",
-                    "/msm_kosmetika_fin/orders.html",
-                    "/msm_kosmetika_fin/contact.html",
-                    "/msm_kosmetika_fin/user-reviews.html",
-                    "/msm_kosmetika_fin/user-profile.html",
-                    "/msm_kosmetika_fin/user-orders.html",
-                    "/msm_kosmetika_fin/order-tracking.html",
-                    "/msm_kosmetika_fin/checkout.html",
-                    "/msm_kosmetika_fin/cart.html"
+                    "/indexlite.html",
+                    "/index.html",
+                    "/shop.html",
+                    "/profile.html",
+                    "/orders.html",
+                    "/contact.html",
+                    "/user-reviews.html",
+                    "/user-profile.html",
+                    "/user-orders.html",
+                    "/order-tracking.html",
+                    "/checkout.html",
+                    "/cart.html"
 
 
                 ];
                 const expectedPage = isAndroid
-                    ? "/msm_kosmetika_fin/index.html"
-                    : "/msm_kosmetika_fin/index.html";
+                    ? "/index.html"
+                    : "/index.html";
                 
                 if (userType !== "admin" && !allowedUserPages.some(page => currentPage.endsWith(page))) {
-                    window.location.href = `http://127.0.0.1:5500${expectedPage}`;
+                    window.location.href = `${expectedPage}`;
                     return;
                 }
                 
                 document.body.style.display = "block";
             } else {
-                window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account.html";
+                window.location.href = "/account.html";
             }
         } catch (error) {
             console.error("Error validating token:", error);
-            window.location.href = "http://127.0.0.1:5500/msm_kosmetika_fin/account.html";
+            window.location.href = "/account.html";
         }
     }
     

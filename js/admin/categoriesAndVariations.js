@@ -25,7 +25,7 @@ const alertDiv = document.querySelector('.alert');
 const confirmationDiv = document.querySelector('.confirmation');
 
 /* ========== API ENDPOINTS ========== */
-const BASE_URL = 'http://localhost:5000/products';
+const BASE_URL = 'http://145.223.33.250:5000/products';
 const API_ENDPOINTS = {
     ADD_TITLE: `${BASE_URL}/add-variation-title`,
     GET_ALL: `${BASE_URL}/get-variations`,

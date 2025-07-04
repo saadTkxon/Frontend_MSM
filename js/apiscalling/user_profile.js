@@ -9,13 +9,13 @@ const changePasswordForm = document.querySelector('.changePasswordForm');
 const changePasswordSaveBtn = document.querySelector('.changePasswordSaveBtn');
 
 // API Endpoints
-const GET_PROFILE_URL = 'http://localhost:5000/usertrs/get_profile';
-const UPDATE_PROFILE_URL = 'http://localhost:5000/usertrs/update_profile';
+const GET_PROFILE_URL = 'http://145.223.33.250:5000/usertrs/get_profile';
+const UPDATE_PROFILE_URL = 'http://145.223.33.250:5000/usertrs/update_profile';
 // const CHANGE_PASSWORD_URL = 'http://localhost:5000/usertrs/change_password';
-const GET_ADDRESSES_URL = 'http://localhost:5000/usertrs/get_addresses';
-const ADD_ADDRESS_URL = 'http://localhost:5000/usertrs/add_address';
-const UPDATE_ADDRESS_URL = 'http://localhost:5000/usertrs/update_address';
-const DELETE_ADDRESS_URL = 'http://localhost:5000/usertrs/delete_address';
+const GET_ADDRESSES_URL = 'http://145.223.33.250:5000/usertrs/get_addresses';
+const ADD_ADDRESS_URL = 'http://145.223.33.250:5000/usertrs/add_address';
+const UPDATE_ADDRESS_URL = 'http://145.223.33.250:5000/usertrs/update_address';
+const DELETE_ADDRESS_URL = 'http://145.223.33.250:5000/usertrs/delete_address';
 
 // Global variables
 let userProfile = null;
