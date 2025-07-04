@@ -2,7 +2,7 @@
 function loadReviews(productId) {
     console.log('Starting loadReviews for productId:', productId);
     
-    fetch("http://localhost:5000/products/openreviews", {
+    fetch("http://145.223.33.250:5000/products/openreviews", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

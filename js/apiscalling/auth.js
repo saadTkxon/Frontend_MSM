@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/check-token", {
+            const response = await fetch("http://145.223.33.250:5000/check-token", {
                 method: "GET",
                 headers: { "Authorization": `Bearer ${authToken}` },
             });

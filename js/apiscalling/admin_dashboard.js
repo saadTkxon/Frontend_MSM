@@ -5,7 +5,7 @@ async function fetchDashboardData(startDate = null, endDate = null) {
         document.querySelector('.loading').style.display = 'flex';
         
         const authToken = localStorage.getItem("auth_token");
-        let url = "http://localhost:5000/products/ADMIN/dash";
+        let url = "http://145.223.33.250/products/ADMIN/dash";
         
         // Add date parameters if provided
         if (startDate && endDate) {
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if user is authenticated
     const authToken = localStorage.getItem("auth_token");
     if (!authToken) {
-        window.location.href = "/msm_kosmetika_fin/login.html";
+        window.location.href = "/login.html";
         return;
     }
     
@@ -220,6 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set up logout button
     document.getElementById('logoutBtn').addEventListener('click', function() {
         localStorage.removeItem("auth_token");
-        window.location.href = "/msm_kosmetika_fin/login.html";
+        window.location.href = "/login.html";
     });
 });

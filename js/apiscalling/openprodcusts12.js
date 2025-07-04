@@ -2,7 +2,7 @@
 
 // Add this function to fetch and display related products
 function fetchAndDisplayRelatedProducts() {
-    fetch("http://localhost:5000/products/fetchproductsallshoe", {
+    fetch("http://145.223.33.250:5000/products/fetchproductsallshoe", {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function fetchProductDetails(productId) {
     
     
-    fetch("http://localhost:5000/products/getproductopen", {
+    fetch("http://145.223.33.250:5000/products/getproductopen", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
