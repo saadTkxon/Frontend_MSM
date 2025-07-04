@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if user is authenticated
     const authToken = localStorage.getItem("auth_token");
     if (!authToken) {
-        window.location.href = "/login.html";
+        window.location.href = "/account.html";
         return;
     }
     
@@ -220,6 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set up logout button
     document.getElementById('logoutBtn').addEventListener('click', function() {
         localStorage.removeItem("auth_token");
-        window.location.href = "/login.html";
+        window.location.href = "/account.html";
     });
 });
